@@ -1,0 +1,353 @@
+2024-03-19 15:14:12.329 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-19 15:14:12.921 +07:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-03-19 15:14:12.922 +07:00 [INF] Quartz Scheduler created
+2024-03-19 15:14:12.924 +07:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-03-19 15:14:12.925 +07:00 [INF] RAMJobStore initialized.
+2024-03-19 15:14:12.926 +07:00 [INF] Quartz Scheduler 3.5.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-03-19 15:14:12.927 +07:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-03-19 15:14:12.928 +07:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-03-19 15:14:13.017 +07:00 [INF] Adding 1 jobs, 1 triggers.
+2024-03-19 15:14:13.023 +07:00 [INF] Adding job: DEFAULT.ConconcurrentJob
+2024-03-19 15:14:13.601 +07:00 [INF] Now listening on: https://localhost:7199
+2024-03-19 15:14:13.609 +07:00 [INF] Now listening on: http://localhost:5199
+2024-03-19 15:14:13.610 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-19 15:14:13.611 +07:00 [INF] Hosting environment: Development
+2024-03-19 15:14:13.612 +07:00 [INF] Content root path: D:\Old Project\crms pak jose\dotnet\Collectium\
+2024-03-19 15:14:13.623 +07:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-03-19 15:14:15.108 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/index.html - -
+2024-03-19 15:14:15.108 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger - -
+2024-03-19 15:14:15.254 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger - - - 0 - - 149.2876ms
+2024-03-19 15:14:16.036 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/index.html - - - 200 - text/html;charset=utf-8 934.9773ms
+2024-03-19 15:14:16.095 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - -
+2024-03-19 15:14:16.095 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/swagger-ui-standalone-preset.js - -
+2024-03-19 15:14:16.096 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/swagger-ui-bundle.js - -
+2024-03-19 15:14:16.096 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/swagger-ui.css - -
+2024-03-19 15:14:16.096 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_vs/browserLink - -
+2024-03-19 15:14:16.105 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 9.6923ms
+2024-03-19 15:14:16.109 +07:00 [INF] The file /swagger-ui-bundle.js was not modified
+2024-03-19 15:14:16.109 +07:00 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2024-03-19 15:14:16.109 +07:00 [INF] The file /swagger-ui.css was not modified
+2024-03-19 15:14:16.111 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/swagger-ui-bundle.js - - - 304 - application/javascript 15.2262ms
+2024-03-19 15:14:16.111 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/swagger-ui-standalone-preset.js - - - 304 - application/javascript 15.7971ms
+2024-03-19 15:14:16.113 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/swagger-ui.css - - - 304 - text/css 18.0026ms
+2024-03-19 15:14:16.151 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 55.7700ms
+2024-03-19 15:14:16.288 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - -
+2024-03-19 15:14:16.313 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-03-19 15:14:16.315 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - - - 0 628 image/png 26.6123ms
+2024-03-19 15:14:16.340 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - -
+2024-03-19 15:14:16.827 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 486.2562ms
+2024-03-19 15:15:02.362 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/User/login application/json 52
+2024-03-19 15:15:03.569 +07:00 [INF] CORS policy execution successful.
+2024-03-19 15:15:03.724 +07:00 [INF] Executing endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-03-19 15:15:03.746 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[System.String] Login(Collectium.Model.Bean.Request.LoginRequestBean) on controller IseeBackend.Controllers.UserController (Collectium).
+2024-03-19 15:15:05.409 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-19 15:15:06.987 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'MAXP'
+2024-03-19 15:15:07.298 +07:00 [INF] Executed DbCommand (86ms) [Parameters=[@__filter_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [t].[id], [t].[name], [t].[Type]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+WHERE ([u].[username] = @__filter_Username_0) AND ([t].[name] = N'AKTIF')
+2024-03-19 15:15:07.689 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100) (DbType = AnsiString), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [token] ([expire], [firstname], [user_id])
+VALUES (@p0, @p1, @p2);
+SELECT [id]
+FROM [token]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-03-19 15:15:08.166 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-03-19 15:15:08.179 +07:00 [INF] Executed action IseeBackend.Controllers.UserController.Login (Collectium) in 4427.5078ms
+2024-03-19 15:15:08.181 +07:00 [INF] Executed endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-03-19 15:15:08.193 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 5830.9311ms
+2024-03-19 15:15:59.118 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/history - -
+2024-03-19 15:15:59.237 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-19 15:15:59.288 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-19 15:15:59.324 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.HistoryLetter (Collectium)'
+2024-03-19 15:15:59.331 +07:00 [INF] Route matched with {action = "HistoryLetter", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.GenerateLetterHistoryResponseBean] HistoryLetter(Collectium.Model.Bean.ListRequest.GenerateLetterHistoryBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-19 15:16:48.823 +07:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [generate_letter] AS [g]
+2024-03-19 15:16:48.942 +07:00 [INF] Executed DbCommand (92ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[cabang], [t].[cabang_alamat], [t].[cabang_faks], [t].[cabang_kota], [t].[cabang_telepon], [t].[jumlah], [t].[loan_id], [t].[nama_nasabah], [t].[no], [t].[no_kredit], [t].[no_sp1], [t].[no_sp2], [t].[notaris], [t].[notaris_di], [t].[notaris_tgl], [t].[status_id], [t].[tgl], [t].[tgl_bayar], [t].[tgl_kredit], [t].[terbilang], [t].[tgl_sp1], [t].[tgl_sp2], [t].[type_letter], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode]
+FROM (
+    SELECT [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+    FROM [generate_letter] AS [g]
+    ORDER BY [g].[id] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_loan] AS [m] ON [t].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+ORDER BY [t].[id] DESC
+2024-03-19 15:17:15.537 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.GenerateLetterHistoryResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-19 15:17:15.549 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.HistoryLetter (Collectium) in 76214.488ms
+2024-03-19 15:17:15.551 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.HistoryLetter (Collectium)'
+2024-03-19 15:17:15.551 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/history - - - 0 - application/json;+charset=utf-8 76433.1854ms
+2024-03-19 15:17:21.932 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/history - -
+2024-03-19 15:17:21.969 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-19 15:17:22.000 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-19 15:17:22.011 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.HistoryLetter (Collectium)'
+2024-03-19 15:17:22.012 +07:00 [INF] Route matched with {action = "HistoryLetter", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.GenerateLetterHistoryResponseBean] HistoryLetter(Collectium.Model.Bean.ListRequest.GenerateLetterHistoryBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-19 15:17:28.506 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [generate_letter] AS [g]
+2024-03-19 15:17:28.527 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[cabang], [t].[cabang_alamat], [t].[cabang_faks], [t].[cabang_kota], [t].[cabang_telepon], [t].[jumlah], [t].[loan_id], [t].[nama_nasabah], [t].[no], [t].[no_kredit], [t].[no_sp1], [t].[no_sp2], [t].[notaris], [t].[notaris_di], [t].[notaris_tgl], [t].[status_id], [t].[tgl], [t].[tgl_bayar], [t].[tgl_kredit], [t].[terbilang], [t].[tgl_sp1], [t].[tgl_sp2], [t].[type_letter], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode]
+FROM (
+    SELECT [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+    FROM [generate_letter] AS [g]
+    ORDER BY [g].[id] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_loan] AS [m] ON [t].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+ORDER BY [t].[id] DESC
+2024-03-19 15:17:29.853 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.GenerateLetterHistoryResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-19 15:17:29.855 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.HistoryLetter (Collectium) in 7842.0036ms
+2024-03-19 15:17:29.856 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.HistoryLetter (Collectium)'
+2024-03-19 15:17:29.857 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/history - - - 200 - application/json;+charset=utf-8 7924.8050ms
+2024-03-19 17:47:17.216 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/User/login application/json 52
+2024-03-19 17:47:17.288 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-19 17:47:17.433 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-19 17:47:17.449 +07:00 [INF] CORS policy execution successful.
+2024-03-19 17:47:17.451 +07:00 [INF] Executing endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-03-19 17:47:17.453 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[System.String] Login(Collectium.Model.Bean.Request.LoginRequestBean) on controller IseeBackend.Controllers.UserController (Collectium).
+2024-03-19 17:47:17.477 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'MAXP'
+2024-03-19 17:47:17.492 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__filter_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [t].[id], [t].[name], [t].[Type]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+WHERE ([u].[username] = @__filter_Username_0) AND ([t].[name] = N'AKTIF')
+2024-03-19 17:47:17.544 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100) (DbType = AnsiString), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [token] ([expire], [firstname], [user_id])
+VALUES (@p0, @p1, @p2);
+SELECT [id]
+FROM [token]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-03-19 17:47:17.587 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-03-19 17:47:17.595 +07:00 [INF] Executed action IseeBackend.Controllers.UserController.Login (Collectium) in 140.1246ms
+2024-03-19 17:47:17.599 +07:00 [INF] Executed endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-03-19 17:47:17.602 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 390.5229ms
+2024-03-19 17:47:59.207 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/list - -
+2024-03-19 17:47:59.210 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-19 17:47:59.232 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-19 17:47:59.239 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ListLetter (Collectium)'
+2024-03-19 17:47:59.253 +07:00 [INF] Route matched with {action = "ListLetter", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollResponseBean] ListLetter(Collectium.Model.Bean.ListRequest.CollListRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-19 17:48:19.156 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-03-19 17:51:25.980 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[@__ab_Code_0='?' (Size = 50) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+WHERE (([m].[channel_branch_code] = @__ab_Code_0) AND ([m].[status] = 1)) AND ([m].[dpd] > 14)
+2024-03-19 17:51:26.125 +07:00 [INF] Executed DbCommand (77ms) [Parameters=[@__ab_Code_0='?' (Size = 50) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [a].[id], [a].[code], [a].[core_code], [a].[create_date], [a].[name], [a].[status_id], [a].[update_date]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+    FROM [master_loan] AS [m]
+    WHERE (([m].[channel_branch_code] = @__ab_Code_0) AND ([m].[status] = 1)) AND ([m].[dpd] > 14)
+    ORDER BY [m].[id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+LEFT JOIN [collection_call] AS [c] ON [t].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+LEFT JOIN [branch] AS [b] ON [c].[branch_id] = [b].[id]
+LEFT JOIN [area] AS [a] ON [b].[area_id] = [a].[id]
+ORDER BY [t].[id]
+2024-03-19 17:51:26.224 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.CollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-19 17:51:26.257 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.ListLetter (Collectium) in 207001.6829ms
+2024-03-19 17:51:26.259 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.ListLetter (Collectium)'
+2024-03-19 17:51:26.260 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/list - - - 0 - application/json;+charset=utf-8 207053.6334ms
+2024-03-19 17:51:28.559 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/list - -
+2024-03-19 17:51:28.566 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-19 17:51:28.614 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-19 17:51:28.619 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ListLetter (Collectium)'
+2024-03-19 17:51:28.620 +07:00 [INF] Route matched with {action = "ListLetter", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollResponseBean] ListLetter(Collectium.Model.Bean.ListRequest.CollListRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-19 17:51:30.071 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-03-19 17:51:30.093 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__ab_Code_0='?' (Size = 50) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+WHERE (([m].[channel_branch_code] = @__ab_Code_0) AND ([m].[status] = 1)) AND ([m].[dpd] > 14)
+2024-03-19 17:51:30.123 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__ab_Code_0='?' (Size = 50) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [a].[id], [a].[code], [a].[core_code], [a].[create_date], [a].[name], [a].[status_id], [a].[update_date]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+    FROM [master_loan] AS [m]
+    WHERE (([m].[channel_branch_code] = @__ab_Code_0) AND ([m].[status] = 1)) AND ([m].[dpd] > 14)
+    ORDER BY [m].[id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+LEFT JOIN [collection_call] AS [c] ON [t].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+LEFT JOIN [branch] AS [b] ON [c].[branch_id] = [b].[id]
+LEFT JOIN [area] AS [a] ON [b].[area_id] = [a].[id]
+ORDER BY [t].[id]
+2024-03-19 17:51:30.129 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.CollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-19 17:51:30.132 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.ListLetter (Collectium) in 1510.9948ms
+2024-03-19 17:51:30.134 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.ListLetter (Collectium)'
+2024-03-19 17:51:30.135 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/list - - - 200 - application/json;+charset=utf-8 1576.6912ms
+2024-03-19 17:57:39.412 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/list - -
+2024-03-19 17:57:39.419 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-19 17:57:39.450 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-19 17:57:39.455 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ListLetter (Collectium)'
+2024-03-19 17:57:39.455 +07:00 [INF] Route matched with {action = "ListLetter", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollResponseBean] ListLetter(Collectium.Model.Bean.ListRequest.CollListRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-19 17:57:41.015 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-03-19 17:58:07.145 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__ab_Code_0='?' (Size = 50) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+WHERE (([m].[channel_branch_code] = @__ab_Code_0) AND ([m].[status] = 1)) AND ([m].[dpd] > 14)
+2024-03-19 17:58:08.446 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__ab_Code_0='?' (Size = 50) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [a].[id], [a].[code], [a].[core_code], [a].[create_date], [a].[name], [a].[status_id], [a].[update_date]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+    FROM [master_loan] AS [m]
+    WHERE (([m].[channel_branch_code] = @__ab_Code_0) AND ([m].[status] = 1)) AND ([m].[dpd] > 14)
+    ORDER BY [m].[id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+LEFT JOIN [collection_call] AS [c] ON [t].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+LEFT JOIN [branch] AS [b] ON [c].[branch_id] = [b].[id]
+LEFT JOIN [area] AS [a] ON [b].[area_id] = [a].[id]
+ORDER BY [t].[id]
+2024-03-19 17:58:16.924 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.CollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-19 17:58:16.925 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.ListLetter (Collectium) in 37468.78ms
+2024-03-19 17:58:16.927 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.ListLetter (Collectium)'
+2024-03-19 17:58:16.930 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/list - - - 200 - application/json;+charset=utf-8 37518.0594ms
+2024-03-19 23:28:08.223 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/view - -
+2024-03-19 23:28:08.240 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-19 23:28:08.327 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-19 23:28:08.334 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetter (Collectium)'
+2024-03-19 23:28:08.339 +07:00 [INF] Route matched with {action = "GenerateLetter", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.GenerateLetterResponseBean] GenerateLetter(Collectium.Model.Bean.ListRequest.GenerateLetterRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-19 23:28:20.532 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.GenerateLetterResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-19 23:28:20.542 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetter (Collectium) in 12201.6303ms
+2024-03-19 23:28:20.543 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetter (Collectium)'
+2024-03-19 23:28:20.544 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/view - - - 200 - application/json;+charset=utf-8 12323.3876ms
+2024-03-19 23:28:32.728 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/view?LoanId=4901 - -
+2024-03-19 23:28:32.732 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-19 23:28:32.753 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-19 23:28:32.757 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetter (Collectium)'
+2024-03-19 23:28:32.758 +07:00 [INF] Route matched with {action = "GenerateLetter", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.GenerateLetterResponseBean] GenerateLetter(Collectium.Model.Bean.ListRequest.GenerateLetterRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-19 23:28:35.568 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-03-19 23:28:58.407 +07:00 [INF] Executed DbCommand (31ms) [Parameters=[@__filter_LoanId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([g].[loan_id] = @__filter_LoanId_0) AND ([g].[type_letter] = N'ST')) AND ([t].[name] = N'AKTIF')
+2024-03-19 23:29:22.320 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.GenerateLetterResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-19 23:29:22.367 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetter (Collectium) in 49607.6026ms
+2024-03-19 23:29:22.367 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetter (Collectium)'
+2024-03-19 23:29:22.368 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/view?LoanId=4901 - - - 200 - application/json;+charset=utf-8 49639.8510ms

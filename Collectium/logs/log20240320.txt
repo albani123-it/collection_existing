@@ -1,0 +1,503 @@
+2024-03-20 00:05:45.159 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/generate - -
+2024-03-20 00:05:45.174 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 00:05:45.270 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-20 00:05:45.279 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-03-20 00:05:45.283 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-20 00:05:55.344 +07:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-03-20 00:05:55.351 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium) in 10064.4549ms
+2024-03-20 00:05:55.352 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-03-20 00:05:55.353 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/generate - - - 400 - application/problem+json;+charset=utf-8 10194.3536ms
+2024-03-20 00:06:03.200 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/generate?Id=4901 - -
+2024-03-20 00:06:03.202 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 00:06:03.222 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-20 00:06:03.226 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-03-20 00:06:03.229 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-20 00:06:06.478 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-03-20 00:06:19.916 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@__acc_0='?' (Size = 25) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[acc_no] = @__acc_0
+2024-03-20 00:06:21.850 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-03-20 00:06:26.448 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'JSPR'
+2024-03-20 00:06:35.721 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium) in 32490.6735ms
+2024-03-20 00:06:35.728 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-03-20 00:06:35.754 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'stringToEscape')
+   at System.UriHelper.EscapeString(String stringToEscape, Boolean checkExistingEscaped, ReadOnlySpan`1 unreserved, Char forceEscape1, Char forceEscape2)
+   at System.Uri.EscapeDataString(String stringToEscape)
+   at Collectium.Service.GenerateLetterService.GenerateLetterV2(GenerateLetterPdfRequestBean filter) in D:\Old Project\crms pak jose\dotnet\Collectium\Service\GenerateLetterService.cs:line 398
+   at Collectium.Controllers.CollectionController.GenerateLetterPdf(GenerateLetterPdfRequestBean bean) in D:\Old Project\crms pak jose\dotnet\Collectium\Controllers\CollectionController.cs:line 413
+   at lambda_method2042(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Collectium.Config.JWTMiddleware.Invoke(HttpContext context, UserService userService) in D:\Old Project\crms pak jose\dotnet\Collectium\Config\JWTMiddleware.cs:line 43
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-03-20 00:06:36.443 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/generate?Id=4901 - - - 500 - text/plain;+charset=utf-8 33242.5702ms
+2024-03-20 12:34:26.706 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/generate?Id=4901 - -
+2024-03-20 12:34:26.720 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 12:34:26.824 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-20 12:34:26.829 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-03-20 12:34:26.830 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-20 12:34:33.580 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-03-20 12:34:45.674 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__acc_0='?' (Size = 25) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[acc_no] = @__acc_0
+2024-03-20 12:34:59.515 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-03-20 12:35:02.012 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'JSPR'
+2024-03-20 13:14:02.466 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium) in 2375635.2273ms
+2024-03-20 13:14:02.468 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-03-20 13:14:02.482 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'stringToEscape')
+   at System.UriHelper.EscapeString(String stringToEscape, Boolean checkExistingEscaped, ReadOnlySpan`1 unreserved, Char forceEscape1, Char forceEscape2)
+   at System.Uri.EscapeDataString(String stringToEscape)
+   at Collectium.Service.GenerateLetterService.GenerateLetterV2(GenerateLetterPdfRequestBean filter) in D:\Old Project\crms pak jose\dotnet\Collectium\Service\GenerateLetterService.cs:line 398
+   at Collectium.Controllers.CollectionController.GenerateLetterPdf(GenerateLetterPdfRequestBean bean) in D:\Old Project\crms pak jose\dotnet\Collectium\Controllers\CollectionController.cs:line 413
+   at lambda_method2042(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Collectium.Config.JWTMiddleware.Invoke(HttpContext context, UserService userService) in D:\Old Project\crms pak jose\dotnet\Collectium\Config\JWTMiddleware.cs:line 43
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-03-20 13:14:02.494 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/generate?Id=4901 - - - 500 - text/plain;+charset=utf-8 2375789.0452ms
+2024-03-20 13:14:06.351 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/generate?Id=4901 - -
+2024-03-20 13:14:06.352 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 13:14:06.476 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-20 13:14:06.480 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-03-20 13:14:06.480 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-20 13:14:11.427 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-03-20 13:14:52.185 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__acc_0='?' (Size = 25) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[acc_no] = @__acc_0
+2024-03-20 13:14:52.198 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-03-20 13:14:52.210 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'JSPR'
+2024-03-20 13:14:53.201 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium) in 46719.9138ms
+2024-03-20 13:14:53.203 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-03-20 13:14:53.218 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'stringToEscape')
+   at System.UriHelper.EscapeString(String stringToEscape, Boolean checkExistingEscaped, ReadOnlySpan`1 unreserved, Char forceEscape1, Char forceEscape2)
+   at System.Uri.EscapeDataString(String stringToEscape)
+   at Collectium.Service.GenerateLetterService.GenerateLetterV2(GenerateLetterPdfRequestBean filter) in D:\Old Project\crms pak jose\dotnet\Collectium\Service\GenerateLetterService.cs:line 398
+   at Collectium.Controllers.CollectionController.GenerateLetterPdf(GenerateLetterPdfRequestBean bean) in D:\Old Project\crms pak jose\dotnet\Collectium\Controllers\CollectionController.cs:line 413
+   at lambda_method2042(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Collectium.Config.JWTMiddleware.Invoke(HttpContext context, UserService userService) in D:\Old Project\crms pak jose\dotnet\Collectium\Config\JWTMiddleware.cs:line 43
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-03-20 13:14:53.225 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/generate?Id=4901 - - - 500 - text/plain;+charset=utf-8 46874.7047ms
+2024-03-20 13:14:59.758 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/generate?Id=4901&Code=ST - -
+2024-03-20 13:14:59.760 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 13:14:59.785 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-20 13:14:59.788 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-03-20 13:14:59.789 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-20 13:15:04.997 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-03-20 13:15:08.487 +07:00 [INF] Executed DbCommand (74ms) [Parameters=[@__loanId_0='?' (DbType = Int32), @__code_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN [master_loan] AS [m] ON [g].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([m].[id] = @__loanId_0) AND ([g].[type_letter] = @__code_1)) AND ([t].[name] = N'AKTIF')
+2024-03-20 19:00:23.072 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-20 19:00:23.471 +07:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-03-20 19:00:23.472 +07:00 [INF] Quartz Scheduler created
+2024-03-20 19:00:23.473 +07:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-03-20 19:00:23.475 +07:00 [INF] RAMJobStore initialized.
+2024-03-20 19:00:23.476 +07:00 [INF] Quartz Scheduler 3.5.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-03-20 19:00:23.477 +07:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-03-20 19:00:23.478 +07:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-03-20 19:00:23.529 +07:00 [INF] Adding 1 jobs, 1 triggers.
+2024-03-20 19:00:23.533 +07:00 [INF] Adding job: DEFAULT.ConconcurrentJob
+2024-03-20 19:00:24.038 +07:00 [INF] Now listening on: https://localhost:7199
+2024-03-20 19:00:24.038 +07:00 [INF] Now listening on: http://localhost:5199
+2024-03-20 19:00:24.039 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-20 19:00:24.044 +07:00 [INF] Hosting environment: Development
+2024-03-20 19:00:24.045 +07:00 [INF] Content root path: D:\Old Project\crms pak jose\dotnet\Collectium\
+2024-03-20 19:00:24.050 +07:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-03-20 19:00:25.342 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger - -
+2024-03-20 19:00:25.407 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/index.html - -
+2024-03-20 19:00:25.465 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger - - - 0 - - 125.8694ms
+2024-03-20 19:00:25.786 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/index.html - - - 200 - text/html;charset=utf-8 379.3662ms
+2024-03-20 19:00:25.892 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - -
+2024-03-20 19:00:25.965 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_vs/browserLink - -
+2024-03-20 19:00:25.986 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 93.9531ms
+2024-03-20 19:00:26.024 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.1709ms
+2024-03-20 19:00:26.041 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - -
+2024-03-20 19:00:26.063 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-03-20 19:00:26.064 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - - - 0 628 image/png 23.0049ms
+2024-03-20 19:00:26.075 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - -
+2024-03-20 19:00:26.387 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 311.9727ms
+2024-03-20 19:00:57.488 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/User/login application/json 52
+2024-03-20 19:00:58.628 +07:00 [INF] CORS policy execution successful.
+2024-03-20 19:00:58.754 +07:00 [INF] Executing endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-03-20 19:00:58.780 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[System.String] Login(Collectium.Model.Bean.Request.LoginRequestBean) on controller IseeBackend.Controllers.UserController (Collectium).
+2024-03-20 19:01:00.308 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 19:01:01.774 +07:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'MAXP'
+2024-03-20 19:01:02.051 +07:00 [INF] Executed DbCommand (91ms) [Parameters=[@__filter_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [t].[id], [t].[name], [t].[Type]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+WHERE ([u].[username] = @__filter_Username_0) AND ([t].[name] = N'AKTIF')
+2024-03-20 19:01:02.406 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100) (DbType = AnsiString), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [token] ([expire], [firstname], [user_id])
+VALUES (@p0, @p1, @p2);
+SELECT [id]
+FROM [token]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-03-20 19:01:02.787 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-03-20 19:01:02.803 +07:00 [INF] Executed action IseeBackend.Controllers.UserController.Login (Collectium) in 4017.5438ms
+2024-03-20 19:01:02.807 +07:00 [INF] Executed endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-03-20 19:01:02.816 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 5327.3593ms
+2024-03-20 19:04:08.422 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Rule/bucket/list - -
+2024-03-20 19:04:08.501 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 19:04:08.538 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-20 19:04:08.573 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RuleController.ListBucket (Collectium)'
+2024-03-20 19:04:08.579 +07:00 [INF] Route matched with {action = "ListBucket", controller = "Rule"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketListResponseBean] ListBucket(BucketListBean) on controller Collectium.Controllers.RuleController (Collectium).
+2024-03-20 19:04:20.552 +07:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+WHERE [t].[name] = N'AKTIF'
+2024-03-20 19:04:26.844 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[code], [b].[ext_code], [b].[name], [b].[status_id], [t].[id], [t].[name], [t].[Type]
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+WHERE [t].[name] = N'AKTIF'
+ORDER BY [b].[id] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2024-03-20 19:04:26.869 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketListResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-20 19:04:26.873 +07:00 [INF] Executed action Collectium.Controllers.RuleController.ListBucket (Collectium) in 18292.8205ms
+2024-03-20 19:04:26.875 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RuleController.ListBucket (Collectium)'
+2024-03-20 19:04:26.876 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Rule/bucket/list - - - 200 - application/json;+charset=utf-8 18453.7810ms
+2024-03-20 19:30:47.113 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Rule/bucket/list - -
+2024-03-20 19:30:47.151 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 19:30:47.240 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-20 19:30:47.247 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RuleController.ListBucket (Collectium)'
+2024-03-20 19:30:47.248 +07:00 [INF] Route matched with {action = "ListBucket", controller = "Rule"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketListResponseBean] ListBucket(BucketListBean) on controller Collectium.Controllers.RuleController (Collectium).
+2024-03-20 19:31:11.536 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+WHERE [t].[name] = N'AKTIF'
+2024-03-20 19:31:11.548 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[code], [b].[ext_code], [b].[name], [b].[status_id], [t].[id], [t].[name], [t].[Type]
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+WHERE [t].[name] = N'AKTIF'
+ORDER BY [b].[id] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2024-03-20 19:31:11.549 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketListResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-20 19:31:11.550 +07:00 [INF] Executed action Collectium.Controllers.RuleController.ListBucket (Collectium) in 24299.6809ms
+2024-03-20 19:31:11.551 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RuleController.ListBucket (Collectium)'
+2024-03-20 19:31:11.552 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Rule/bucket/list - - - 200 - application/json;+charset=utf-8 24439.0765ms
+2024-03-20 20:15:07.007 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Rule/bucket/detail?Id=1 - -
+2024-03-20 20:15:07.018 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 20:15:07.130 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-20 20:15:07.136 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RuleController.DetailBucket (Collectium)'
+2024-03-20 20:15:07.148 +07:00 [INF] Route matched with {action = "DetailBucket", controller = "Rule"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketDetailResponseBean] DetailBucket(Collectium.Model.Bean.Request.UserReqApproveBean) on controller Collectium.Controllers.RuleController (Collectium).
+2024-03-20 20:15:07.358 +07:00 [INF] Executed DbCommand (63ms) [Parameters=[@__filter_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[code], [b].[ext_code], [b].[name], [b].[status_id], [t].[id], [t].[name], [t].[Type], [t0].[id], [t0].[bucket_id], [t0].[user_id], [t0].[id0], [t0].[active_branch_id], [t0].[admin], [t0].[create_date], [t0].[email], [t0].[fail], [t0].[fcm], [t0].[name], [t0].[pass_device], [t0].[password], [t0].[role_id], [t0].[status_id], [t0].[tel_code], [t0].[tel_device], [t0].[url], [t0].[username]
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+LEFT JOIN (
+    SELECT [b0].[id], [b0].[bucket_id], [b0].[user_id], [u].[id] AS [id0], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+    FROM [bucket_user] AS [b0]
+    LEFT JOIN [users] AS [u] ON [b0].[user_id] = [u].[id]
+) AS [t0] ON [b].[id] = [t0].[bucket_id]
+WHERE [b].[id] = @__filter_Id_0
+ORDER BY [b].[id], [t].[id], [t0].[id]
+2024-03-20 20:15:07.377 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketDetailResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-20 20:15:07.384 +07:00 [INF] Executed action Collectium.Controllers.RuleController.DetailBucket (Collectium) in 235.0285ms
+2024-03-20 20:15:07.385 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RuleController.DetailBucket (Collectium)'
+2024-03-20 20:15:07.385 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Rule/bucket/detail?Id=1 - - - 200 - application/json;+charset=utf-8 378.9461ms
+2024-03-20 20:15:25.929 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Rule/bucket/detail?Id=2021 - -
+2024-03-20 20:15:25.934 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 20:15:25.973 +07:00 [INF] Executed DbCommand (36ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-20 20:15:25.976 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RuleController.DetailBucket (Collectium)'
+2024-03-20 20:15:25.976 +07:00 [INF] Route matched with {action = "DetailBucket", controller = "Rule"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketDetailResponseBean] DetailBucket(Collectium.Model.Bean.Request.UserReqApproveBean) on controller Collectium.Controllers.RuleController (Collectium).
+2024-03-20 20:15:25.998 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__filter_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[code], [b].[ext_code], [b].[name], [b].[status_id], [t].[id], [t].[name], [t].[Type], [t0].[id], [t0].[bucket_id], [t0].[user_id], [t0].[id0], [t0].[active_branch_id], [t0].[admin], [t0].[create_date], [t0].[email], [t0].[fail], [t0].[fcm], [t0].[name], [t0].[pass_device], [t0].[password], [t0].[role_id], [t0].[status_id], [t0].[tel_code], [t0].[tel_device], [t0].[url], [t0].[username]
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+LEFT JOIN (
+    SELECT [b0].[id], [b0].[bucket_id], [b0].[user_id], [u].[id] AS [id0], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+    FROM [bucket_user] AS [b0]
+    LEFT JOIN [users] AS [u] ON [b0].[user_id] = [u].[id]
+) AS [t0] ON [b].[id] = [t0].[bucket_id]
+WHERE [b].[id] = @__filter_Id_0
+ORDER BY [b].[id], [t].[id], [t0].[id]
+2024-03-20 20:15:26.016 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketDetailResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-20 20:15:26.017 +07:00 [INF] Executed action Collectium.Controllers.RuleController.DetailBucket (Collectium) in 40.0723ms
+2024-03-20 20:15:26.018 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RuleController.DetailBucket (Collectium)'
+2024-03-20 20:15:26.018 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Rule/bucket/detail?Id=2021 - - - 200 - application/json;+charset=utf-8 89.0586ms
+2024-03-20 20:15:34.663 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Rule/bucket/detail?Id=2021 - -
+2024-03-20 20:15:34.667 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 20:15:34.684 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-20 20:15:34.686 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RuleController.DetailBucket (Collectium)'
+2024-03-20 20:15:34.686 +07:00 [INF] Route matched with {action = "DetailBucket", controller = "Rule"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketDetailResponseBean] DetailBucket(Collectium.Model.Bean.Request.UserReqApproveBean) on controller Collectium.Controllers.RuleController (Collectium).
+2024-03-20 20:15:34.697 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__filter_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[code], [b].[ext_code], [b].[name], [b].[status_id], [t].[id], [t].[name], [t].[Type], [t0].[id], [t0].[bucket_id], [t0].[user_id], [t0].[id0], [t0].[active_branch_id], [t0].[admin], [t0].[create_date], [t0].[email], [t0].[fail], [t0].[fcm], [t0].[name], [t0].[pass_device], [t0].[password], [t0].[role_id], [t0].[status_id], [t0].[tel_code], [t0].[tel_device], [t0].[url], [t0].[username]
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+LEFT JOIN (
+    SELECT [b0].[id], [b0].[bucket_id], [b0].[user_id], [u].[id] AS [id0], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+    FROM [bucket_user] AS [b0]
+    LEFT JOIN [users] AS [u] ON [b0].[user_id] = [u].[id]
+) AS [t0] ON [b].[id] = [t0].[bucket_id]
+WHERE [b].[id] = @__filter_Id_0
+ORDER BY [b].[id], [t].[id], [t0].[id]
+2024-03-20 20:15:34.699 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketDetailResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-20 20:15:34.700 +07:00 [INF] Executed action Collectium.Controllers.RuleController.DetailBucket (Collectium) in 12.6198ms
+2024-03-20 20:15:34.701 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RuleController.DetailBucket (Collectium)'
+2024-03-20 20:15:34.702 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Rule/bucket/detail?Id=2021 - - - 200 - application/json;+charset=utf-8 38.1595ms
+2024-03-20 20:16:00.384 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Rule/bucket/detail?Id=2021 - -
+2024-03-20 20:16:00.389 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-20 20:16:00.408 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-20 20:16:00.410 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RuleController.DetailBucket (Collectium)'
+2024-03-20 20:16:00.411 +07:00 [INF] Route matched with {action = "DetailBucket", controller = "Rule"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketDetailResponseBean] DetailBucket(Collectium.Model.Bean.Request.UserReqApproveBean) on controller Collectium.Controllers.RuleController (Collectium).
+2024-03-20 20:16:06.008 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__filter_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[code], [b].[ext_code], [b].[name], [b].[status_id], [t].[id], [t].[name], [t].[Type], [t0].[id], [t0].[bucket_id], [t0].[user_id], [t0].[id0], [t0].[active_branch_id], [t0].[admin], [t0].[create_date], [t0].[email], [t0].[fail], [t0].[fcm], [t0].[name], [t0].[pass_device], [t0].[password], [t0].[role_id], [t0].[status_id], [t0].[tel_code], [t0].[tel_device], [t0].[url], [t0].[username]
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+LEFT JOIN (
+    SELECT [b0].[id], [b0].[bucket_id], [b0].[user_id], [u].[id] AS [id0], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+    FROM [bucket_user] AS [b0]
+    LEFT JOIN [users] AS [u] ON [b0].[user_id] = [u].[id]
+) AS [t0] ON [b].[id] = [t0].[bucket_id]
+WHERE [b].[id] = @__filter_Id_0
+ORDER BY [b].[id], [t].[id], [t0].[id]
+2024-03-20 20:18:50.553 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketDetailResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-20 20:18:50.572 +07:00 [INF] Executed action Collectium.Controllers.RuleController.DetailBucket (Collectium) in 170159.4117ms
+2024-03-20 20:18:50.579 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RuleController.DetailBucket (Collectium)'
+2024-03-20 20:18:50.580 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Rule/bucket/detail?Id=2021 - - - 200 - application/json;+charset=utf-8 170195.8663ms

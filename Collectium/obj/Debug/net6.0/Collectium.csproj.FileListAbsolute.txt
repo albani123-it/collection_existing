@@ -1,0 +1,210 @@
+D:\source\dotnet\Collectium\bin\Debug\net6.0\appsettings.Development.json
+D:\source\dotnet\Collectium\bin\Debug\net6.0\appsettings.json
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Collectium.exe
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Collectium.deps.json
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Collectium.runtimeconfig.json
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Collectium.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Collectium.pdb
+D:\source\dotnet\Collectium\bin\Debug\net6.0\AutoMapper.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Azure.Core.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Azure.Identity.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\ClosedXML.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\ClosedXML.Report.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\ExcelNumberFormat.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Humanizer.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Irony.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\LinqKit.Core.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\LinqKit.Microsoft.EntityFrameworkCore.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\MoreLinq.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\N.EntityFrameworkCore.Extensions.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Npgsql.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Quartz.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Quartz.Extensions.DependencyInjection.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Quartz.Extensions.Hosting.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\RestSharp.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Serilog.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Serilog.AspNetCore.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Serilog.Sinks.File.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\SixLabors.Fonts.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\System.IO.Packaging.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\System.Memory.Data.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\System.Runtime.Caching.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\XLParser.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\source\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\source\dotnet\Collectium\obj\Debug\net6.0\Collectium.csproj.AssemblyReference.cache
+D:\source\dotnet\Collectium\obj\Debug\net6.0\Collectium.GeneratedMSBuildEditorConfig.editorconfig
+D:\source\dotnet\Collectium\obj\Debug\net6.0\Collectium.AssemblyInfoInputs.cache
+D:\source\dotnet\Collectium\obj\Debug\net6.0\Collectium.AssemblyInfo.cs
+D:\source\dotnet\Collectium\obj\Debug\net6.0\Collectium.csproj.CoreCompileInputs.cache
+D:\source\dotnet\Collectium\obj\Debug\net6.0\Collectium.MvcApplicationPartsAssemblyInfo.cs
+D:\source\dotnet\Collectium\obj\Debug\net6.0\Collectium.MvcApplicationPartsAssemblyInfo.cache
+D:\source\dotnet\Collectium\obj\Debug\net6.0\staticwebassets\msbuild.Collectium.Microsoft.AspNetCore.StaticWebAssets.props
+D:\source\dotnet\Collectium\obj\Debug\net6.0\staticwebassets\msbuild.build.Collectium.props
+D:\source\dotnet\Collectium\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Collectium.props
+D:\source\dotnet\Collectium\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Collectium.props
+D:\source\dotnet\Collectium\obj\Debug\net6.0\staticwebassets.pack.json
+D:\source\dotnet\Collectium\obj\Debug\net6.0\staticwebassets.build.json
+D:\source\dotnet\Collectium\obj\Debug\net6.0\staticwebassets.development.json
+D:\source\dotnet\Collectium\obj\Debug\net6.0\scopedcss\bundle\Collectium.styles.css
+D:\source\dotnet\Collectium\obj\Debug\net6.0\Collectium.csproj.CopyComplete
+D:\source\dotnet\Collectium\obj\Debug\net6.0\Collectium.dll
+D:\source\dotnet\Collectium\obj\Debug\net6.0\refint\Collectium.dll
+D:\source\dotnet\Collectium\obj\Debug\net6.0\Collectium.pdb
+D:\source\dotnet\Collectium\obj\Debug\net6.0\Collectium.genruntimeconfig.cache
+D:\source\dotnet\Collectium\obj\Debug\net6.0\ref\Collectium.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\appsettings.Development.json
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\appsettings.json
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Collectium.exe
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Collectium.deps.json
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Collectium.runtimeconfig.json
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Collectium.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Collectium.pdb
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\AutoMapper.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Azure.Core.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Azure.Identity.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\ClosedXML.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\ClosedXML.Report.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\ExcelNumberFormat.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Humanizer.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Irony.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\LinqKit.Core.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\LinqKit.Microsoft.EntityFrameworkCore.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\MoreLinq.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\N.EntityFrameworkCore.Extensions.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Npgsql.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Quartz.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Quartz.Extensions.DependencyInjection.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Quartz.Extensions.Hosting.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\RestSharp.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Serilog.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Serilog.AspNetCore.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Serilog.Sinks.File.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\SixLabors.Fonts.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\System.IO.Packaging.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\System.Memory.Data.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\System.Runtime.Caching.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\XLParser.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\Collectium.csproj.AssemblyReference.cache
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\Collectium.GeneratedMSBuildEditorConfig.editorconfig
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\Collectium.AssemblyInfoInputs.cache
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\Collectium.AssemblyInfo.cs
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\Collectium.csproj.CoreCompileInputs.cache
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\Collectium.MvcApplicationPartsAssemblyInfo.cs
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\Collectium.MvcApplicationPartsAssemblyInfo.cache
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\staticwebassets\msbuild.Collectium.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\staticwebassets\msbuild.build.Collectium.props
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Collectium.props
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Collectium.props
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\staticwebassets.build.json
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\staticwebassets.development.json
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\scopedcss\bundle\Collectium.styles.css
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\Collectium.csproj.CopyComplete
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\Collectium.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\refint\Collectium.dll
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\Collectium.pdb
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\Collectium.genruntimeconfig.cache
+D:\Old Project\crms pak jose\dotnet\Collectium\obj\Debug\net6.0\ref\Collectium.dll

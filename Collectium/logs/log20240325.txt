@@ -1,0 +1,281 @@
+2024-03-25 00:21:51.557 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/Collection/fieldcoll/reassign application/json 31
+2024-03-25 00:21:51.603 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-25 00:21:51.846 +07:00 [INF] Executed DbCommand (53ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-25 00:21:51.855 +07:00 [INF] CORS policy execution successful.
+2024-03-25 00:21:51.860 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ReassignFC (Collectium)'
+2024-03-25 00:21:51.863 +07:00 [INF] Route matched with {action = "ReassignFC", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Request.ReassignBean] ReassignFC(Collectium.Model.Bean.Request.ReassignBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-25 00:22:04.358 +07:00 [INF] Executed DbCommand (84ms) [Parameters=[@__filter_ToMember_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (([u].[id] = @__filter_ToMember_0) AND ([t].[name] = N'AKTIF')) AND ([r].[name] = N'FC')
+2024-03-25 00:22:07.427 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[branch_id], [u].[status_id], [u].[user_id]
+FROM [user_branch] AS [u]
+WHERE [u].[user_id] = @__p_0
+2024-03-25 00:22:09.112 +07:00 [INF] Executed DbCommand (60ms) [Parameters=[@__reqUser_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[area_id], [t].[branch_id], [t].[spv_id], [u].[id], [t0].[id], [t0].[member_id], [t0].[team_id]
+FROM [team] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[spv_id] = [u].[id]
+LEFT JOIN [team_member] AS [t0] ON [t].[id] = [t0].[team_id]
+WHERE [u].[id] = @__reqUser_Id_0
+ORDER BY [t].[id], [u].[id]
+2024-03-25 00:22:09.167 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:22:09.215 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:22:09.249 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:22:09.306 +07:00 [INF] Executed DbCommand (53ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:22:09.350 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:22:09.394 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:22:09.443 +07:00 [INF] Executed DbCommand (43ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:22:09.489 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:22:09.535 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:22:09.569 +07:00 [INF] Executed DbCommand (31ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:22:09.604 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:22:23.097 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-03-25 00:22:24.319 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[loan_id] = @__p_0
+2024-03-25 00:24:07.282 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Request.ReassignBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-25 00:24:07.296 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.ReassignFC (Collectium) in 135430.529ms
+2024-03-25 00:24:07.297 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.ReassignFC (Collectium)'
+2024-03-25 00:24:07.297 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/Collection/fieldcoll/reassign application/json 31 - 0 - application/json;+charset=utf-8 135740.6229ms
+2024-03-25 00:24:48.744 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/Collection/fieldcoll/reassign application/json 47
+2024-03-25 00:24:48.746 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-25 00:24:48.801 +07:00 [INF] Executed DbCommand (54ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-25 00:24:48.803 +07:00 [INF] CORS policy execution successful.
+2024-03-25 00:24:48.804 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ReassignFC (Collectium)'
+2024-03-25 00:24:48.805 +07:00 [INF] Route matched with {action = "ReassignFC", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Request.ReassignBean] ReassignFC(Collectium.Model.Bean.Request.ReassignBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-25 00:25:00.807 +07:00 [INF] Executed DbCommand (56ms) [Parameters=[@__filter_ToMember_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (([u].[id] = @__filter_ToMember_0) AND ([t].[name] = N'AKTIF')) AND ([r].[name] = N'FC')
+2024-03-25 00:25:18.775 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[branch_id], [u].[status_id], [u].[user_id]
+FROM [user_branch] AS [u]
+WHERE [u].[user_id] = @__p_0
+2024-03-25 00:25:35.236 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[@__reqUser_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[area_id], [t].[branch_id], [t].[spv_id], [u].[id], [t0].[id], [t0].[member_id], [t0].[team_id]
+FROM [team] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[spv_id] = [u].[id]
+LEFT JOIN [team_member] AS [t0] ON [t].[id] = [t0].[team_id]
+WHERE [u].[id] = @__reqUser_Id_0
+ORDER BY [t].[id], [u].[id]
+2024-03-25 00:25:35.269 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:25:35.317 +07:00 [INF] Executed DbCommand (43ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:25:35.366 +07:00 [INF] Executed DbCommand (45ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:25:35.398 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:25:35.441 +07:00 [INF] Executed DbCommand (37ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:25:35.485 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:25:35.517 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:25:35.555 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:25:35.587 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:25:35.640 +07:00 [INF] Executed DbCommand (49ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:25:35.677 +07:00 [INF] Executed DbCommand (35ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 00:26:04.854 +07:00 [INF] Executed DbCommand (43ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-03-25 00:26:06.620 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[loan_id] = @__p_0
+2024-03-25 00:26:25.823 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Request.ReassignBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-25 00:26:25.826 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.ReassignFC (Collectium) in 97020.1817ms
+2024-03-25 00:26:25.827 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.ReassignFC (Collectium)'
+2024-03-25 00:26:25.828 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/Collection/fieldcoll/reassign application/json 47 - 0 - application/json;+charset=utf-8 97083.5865ms
+2024-03-25 12:05:30.944 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/deskcall/detail?Id=8346 - -
+2024-03-25 12:05:31.019 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-25 12:05:31.627 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-25 12:05:31.658 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.DetailDeskCall (Collectium)'
+2024-03-25 12:05:31.680 +07:00 [INF] Route matched with {action = "DetailDeskCall", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollDetailResponseBean] DetailDeskCall(Collectium.Model.Bean.Request.UserReqApproveBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-25 12:05:39.519 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-03-25 12:05:41.199 +07:00 [INF] Executed DbCommand (156ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[loan_id] = @__p_0
+2024-03-25 12:05:41.750 +07:00 [INF] Executed DbCommand (160ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [users] AS [u]
+WHERE [u].[id] = @__p_0
+2024-03-25 12:05:42.670 +07:00 [INF] Executed DbCommand (186ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[id], [m].[cu_address], [m].[cu_borndate], [m].[cu_bornplace], [m].[branch_id], [m].[cu_cif], [m].[city], [m].[cu_city], [m].[cu_company], [m].[cu_income], [m].[cu_occupation], [m].[cu_custtype], [m].[cu_email], [m].[cu_gender], [m].[cu_hmphone], [m].[cu_idtype], [m].[cu_idnumber], [m].[cu_incometype], [m].[jabatan], [m].[kecamatan], [m].[cu_kecamatan], [m].[kelurahan], [m].[cu_kelurahan], [m].[cu_maritalstatus], [m].[cu_mobilephone], [m].[cu_name], [m].[cu_nationality], [m].[pekerjaan], [m].[provinsi], [m].[cu_provinsi], [m].[cu_rt], [m].[cu_rw], [m].[STG_DATE], [m].[cu_zipcode]
+FROM [master_customer] AS [m]
+WHERE [m].[id] = @__p_0
+2024-03-25 12:05:43.287 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date]
+FROM [rfproduct] AS [r]
+WHERE [r].[id] = @__p_0
+2024-03-25 12:05:43.610 +07:00 [INF] Executed DbCommand (105ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[code], [r].[code_code], [r].[create_date], [r].[desc], [r].[status_id], [r].[update_date]
+FROM [rfproduct_segment] AS [r]
+WHERE [r].[id] = @__p_0
+2024-03-25 12:05:48.602 +07:00 [INF] Executed DbCommand (1,314ms) [Parameters=[@__obj_AccNo_0='?' (Size = 25) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[acc_no], [c].[add_id], [c].[branch_id], [c].[cbm_id], [c].[kolek], [c].[latitude], [c].[longitude], [c].[picture], [c].[ubm_id], [c].[visit_amount], [c].[visit_by], [c].[visit_date], [c].[visit_id], [c].[visit_name], [c].[visit_note], [c].[visit_reason], [c].[visit_result_date], [c].[visit_result]
+FROM [collection_visit] AS [c]
+WHERE [c].[acc_no] = @__obj_AccNo_0
+ORDER BY [c].[visit_date] DESC
+2024-03-25 12:06:06.138 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@__obj_AccNo_0='?' (Size = 25) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[acc_no] = @__obj_AccNo_0
+ORDER BY [c].[call_date] DESC
+2024-03-25 12:06:06.172 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[@__obj_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[id], [m].[col_id], [m].[col_type], [m].[loan_id], [m].[veh_bpkb_name], [m].[veh_bpkb_no], [m].[veh_build_year], [m].[veh_cc], [m].[veh_chassis_no], [m].[veh_color], [m].[veh_engine_no], [m].[veh_merek], [m].[veh_model], [m].[veh_plate_no], [m].[veh_stnk_no], [m].[veh_year]
+FROM [master_collateral] AS [m]
+WHERE [m].[loan_id] = @__obj_Id_0
+ORDER BY [m].[id] DESC
+2024-03-25 12:06:06.518 +07:00 [INF] Executed DbCommand (331ms) [Parameters=[@__obj_Dpd_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[accd_max], [c].[accd_min], [c].[code], [c].[create_date], [c].[cs_desc], [c].[cs_script], [c].[status_id], [c].[update_date]
+FROM [call_script] AS [c]
+WHERE ([c].[accd_min] <= @__obj_Dpd_0) AND ([c].[accd_max] >= @__obj_Dpd_0)
+2024-03-25 12:06:06.949 +07:00 [INF] Executed DbCommand (365ms) [Parameters=[@__obj_Cif_0='?' (Size = 20) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[acc_no], [c].[add_address], [c].[add_by], [c].[add_city], [c].[add_date], [c].[add_from], [c].[add_id], [c].[add_phone], [c].[cu_cif], [c].[def], [c].[lat], [c].[lon], [c0].[id], [c0].[coll_contact_id], [c0].[create_date], [c0].[description], [c0].[lat], [c0].[lon], [c0].[mime], [c0].[title], [c0].[url], [c0].[user_id]
+FROM [collection_add_contact] AS [c]
+LEFT JOIN [collection_contact_photo] AS [c0] ON [c].[id] = [c0].[coll_contact_id]
+WHERE ([c].[cu_cif] = @__obj_Cif_0) AND ([c].[add_phone] IS NOT NULL)
+ORDER BY [c].[id] DESC
+2024-03-25 12:06:12.505 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__cc_AccNo_0='?' (Size = 25) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id], [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[is_dc], [r].[is_fc], [r0].[id], [r0].[rl_code], [r0].[create_date], [r0].[rl_desc], [r0].[status_id], [r0].[update_date], [r0].[is_dc], [r0].[is_fc], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [c0].[id], [c0].[collhistory_id], [c0].[create_date], [c0].[description], [c0].[lat], [c0].[lon], [c0].[mime], [c0].[title], [c0].[url], [c0].[user_id]
+FROM [collection_history] AS [c]
+LEFT JOIN [reason] AS [r] ON [c].[reason] = [r].[id]
+LEFT JOIN [rfresult] AS [r0] ON [c].[result] = [r0].[id]
+LEFT JOIN [users] AS [u] ON [c].[history_by] = [u].[id]
+LEFT JOIN [collection_photo] AS [c0] ON [c].[id] = [c0].[collhistory_id]
+WHERE [c].[acc_no] = @__cc_AccNo_0
+ORDER BY [c].[id] DESC, [r].[id], [r0].[id], [u].[id]
+2024-03-25 12:06:33.327 +07:00 [INF] Executed DbCommand (91ms) [Parameters=[@__obj_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[acc_no], [p].[bunga], [p].[call_by], [p].[create_date], [p].[denda], [p].[loan_id], [p].[pokok_cicilan], [p].[tgl], [p].[total_bayar]
+FROM [payment_history] AS [p]
+LEFT JOIN [master_loan] AS [m] ON [p].[loan_id] = [m].[id]
+WHERE [m].[id] = @__obj_Id_0
+ORDER BY [p].[tgl] DESC
+2024-03-25 12:06:33.384 +07:00 [INF] Executed DbCommand (36ms) [Parameters=[@__obj_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[call_id], [c].[create_date], [c].[lat], [c].[lon], [c].[mime], [c].[phone_no], [c].[status_id], [c].[url], [c].[user_id], [c0].[id], [c0].[acc_no], [c0].[branch_id], [c0].[call_amount], [c0].[call_by], [c0].[call_date], [c0].[call_name], [c0].[call_notes], [c0].[call_result_date], [c0].[call_result_hh], [c0].[call_result_hhmm], [c0].[call_result_id], [c0].[call_result_mm], [c0].[add_id], [c0].[loan_id], [c0].[call_reason], [t].[id], [t].[name], [t].[Type]
+FROM [call_request] AS [c]
+LEFT JOIN [collection_call] AS [c0] ON [c].[call_id] = [c0].[id]
+LEFT JOIN [master_loan] AS [m] ON [c0].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'CALL'
+) AS [t] ON [c].[status_id] = [t].[id]
+WHERE [m].[id] = @__obj_Id_0
+ORDER BY [c].[id] DESC
+2024-03-25 12:06:34.326 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.CollDetailResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-25 12:06:34.366 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.DetailDeskCall (Collectium) in 62685.5234ms
+2024-03-25 12:06:34.367 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.DetailDeskCall (Collectium)'
+2024-03-25 12:06:34.369 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/deskcall/detail?Id=8346 - - - 200 - application/json;+charset=utf-8 63428.5320ms

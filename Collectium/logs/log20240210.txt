@@ -1,0 +1,20 @@
+2024-02-10 23:25:13.762 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/Collection/deskcall/save application/json 209
+2024-02-10 23:25:13.878 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-10 23:25:14.048 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-10 23:25:14.069 +07:00 [INF] CORS policy execution successful.
+2024-02-10 23:25:14.084 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.SaveDC (Collectium)'
+2024-02-10 23:25:14.129 +07:00 [INF] Route matched with {action = "SaveDC", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Request.SaveResultBean] SaveDC(Collectium.Model.Bean.Request.SaveResultBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-10 23:25:27.573 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Request.SaveResultBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-10 23:25:27.593 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.SaveDC (Collectium) in 13462.786ms
+2024-02-10 23:25:27.594 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.SaveDC (Collectium)'
+2024-02-10 23:25:27.596 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/Collection/deskcall/save application/json 209 - 200 - application/json;+charset=utf-8 13840.2012ms

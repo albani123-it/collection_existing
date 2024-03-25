@@ -1,0 +1,798 @@
+2024-03-02 12:31:38.989 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - -
+2024-03-02 12:31:39.112 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-02 12:31:39.288 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-02 12:31:39.311 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-03-02 12:31:39.316 +07:00 [INF] Route matched with {action = "RestructureListMonitoring", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean] RestructureListMonitoring(RestructureListBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-03-02 12:39:49.681 +07:00 [INF] Executed DbCommand (174ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:40:21.740 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:40:45.908 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:44:55.059 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:46:59.923 +07:00 [ERR] Failed executing DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:47:00.579 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-03-02 12:47:08.805 +07:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:47:08.811 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-03-02 12:47:18.922 +07:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:47:18.927 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-03-02 12:47:33.613 +07:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:47:33.620 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-03-02 12:47:41.005 +07:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:47:41.011 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-03-02 12:48:03.511 +07:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:48:03.518 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-03-02 12:48:12.704 +07:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:48:12.707 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-03-02 12:48:37.163 +07:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:48:37.172 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-03-02 12:49:02.104 +07:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id], [t].[name], [t].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t0].[id], [t0].[code], [t0].[name], [t0].[Type]
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+LEFT JOIN [master_loan] AS [m] ON [r].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [r].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [r].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [r].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t0] ON [r].[pola_restruk_id] = [t0].[id]
+2024-03-02 12:49:02.107 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-03-02 16:37:57.876 +07:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [restructure] AS [r]
+2024-03-02 16:37:57.893 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-03-02 16:38:00.572 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium) in 14781249.8213ms
+2024-03-02 16:38:00.582 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-03-02 16:38:00.622 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method2175(Closure , QueryContext )
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at Collectium.Service.RestructureService.ListMonitoring(RestructureListBean filter) in D:\Old Project\crms pak jose\dotnet\Collectium\Service\RestructureService.cs:line 87
+   at Collectium.Controllers.RecoveryController.RestructureListMonitoring(RestructureListBean filter) in D:\Old Project\crms pak jose\dotnet\Collectium\Controllers\RecoveryController.cs:line 55
+   at lambda_method2171(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Collectium.Config.JWTMiddleware.Invoke(HttpContext context, UserService userService) in D:\Old Project\crms pak jose\dotnet\Collectium\Config\JWTMiddleware.cs:line 43
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-03-02 16:38:01.573 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - - - 500 - text/plain;+charset=utf-8 14782590.5343ms
+2024-03-02 16:38:03.633 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - -
+2024-03-02 16:38:03.666 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-02 16:38:03.713 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-02 16:38:03.730 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-03-02 16:38:03.732 +07:00 [INF] Route matched with {action = "RestructureListMonitoring", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean] RestructureListMonitoring(RestructureListBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-03-02 16:38:05.320 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [restructure] AS [r]
+2024-03-02 16:38:05.346 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[approveby_id], [t].[approve_date], [t].[mst_branch_id], [t].[mst_branch_pembukuan_id], [t].[mst_branch_proses_id], [t].[checkby_id], [t].[check_date], [t].[createby_id], [t].[create_date], [t].[denda], [t].[disc_tunggakan_denda], [t].[disc_tunggakan_margin], [t].[grace_periode], [t].[jenis_pengurangan_id], [t].[keterangan], [t].[last_update_id], [t].[last_update_date], [t].[loan_id], [t].[margin], [t].[margin_amount], [t].[margin_pembayaran], [t].[margin_pinalty], [t].[pembayaran_gp_id], [t].[pengurangan_nilai_margin], [t].[periode_diskon], [t].[permasalahan], [t].[pola_restruk_id], [t].[principal_pembayaran], [t].[principal_pinalty], [t].[status_id], [t].[tgl_akhir_periode_diskon], [t].[tgl_awal_periode_diskon], [t].[tgl_jatuh_tempo_baru], [t].[total_diskon_margin], [t].[value_date], [t0].[id], [t0].[name], [t0].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t1].[id], [t1].[code], [t1].[name], [t1].[Type]
+FROM (
+    SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date]
+    FROM [restructure] AS [r]
+    ORDER BY [r].[id] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t0] ON [t].[status_id] = [t0].[id]
+LEFT JOIN [master_loan] AS [m] ON [t].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [t].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [t].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [t].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t1] ON [t].[pola_restruk_id] = [t1].[id]
+ORDER BY [t].[id] DESC
+2024-03-02 16:38:05.361 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-02 16:38:05.369 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium) in 1633.8307ms
+2024-03-02 16:38:05.370 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-03-02 16:38:05.370 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - - - 200 - application/json;+charset=utf-8 1737.5810ms
+2024-03-02 16:52:20.001 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - -
+2024-03-02 16:52:20.010 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-02 16:52:20.147 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-02 16:52:20.150 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-03-02 16:52:20.151 +07:00 [INF] Route matched with {action = "RestructureListMonitoring", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean] RestructureListMonitoring(RestructureListBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-03-02 16:52:22.938 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [restructure] AS [r]
+2024-03-02 16:54:59.793 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - -
+2024-03-02 16:54:59.796 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[approveby_id], [t].[approve_date], [t].[mst_branch_id], [t].[mst_branch_pembukuan_id], [t].[mst_branch_proses_id], [t].[checkby_id], [t].[check_date], [t].[createby_id], [t].[create_date], [t].[denda], [t].[disc_tunggakan_denda], [t].[disc_tunggakan_margin], [t].[grace_periode], [t].[jenis_pengurangan_id], [t].[keterangan], [t].[last_update_id], [t].[last_update_date], [t].[loan_id], [t].[margin], [t].[margin_amount], [t].[margin_pembayaran], [t].[margin_pinalty], [t].[pembayaran_gp_id], [t].[pengurangan_nilai_margin], [t].[periode_diskon], [t].[permasalahan], [t].[pola_restruk_id], [t].[principal_pembayaran], [t].[principal_pinalty], [t].[status_id], [t].[tgl_akhir_periode_diskon], [t].[tgl_awal_periode_diskon], [t].[tgl_jatuh_tempo_baru], [t].[total_diskon_margin], [t].[value_date], [t0].[id], [t0].[name], [t0].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t1].[id], [t1].[code], [t1].[name], [t1].[Type]
+FROM (
+    SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date]
+    FROM [restructure] AS [r]
+    ORDER BY [r].[id] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t0] ON [t].[status_id] = [t0].[id]
+LEFT JOIN [master_loan] AS [m] ON [t].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [t].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [t].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [t].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t1] ON [t].[pola_restruk_id] = [t1].[id]
+ORDER BY [t].[id] DESC
+2024-03-02 16:54:59.799 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-02 16:54:59.803 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-02 16:54:59.809 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium) in 159656.6671ms
+2024-03-02 16:54:59.810 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-03-02 16:54:59.811 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - - - 0 - application/json;+charset=utf-8 159809.7443ms
+2024-03-02 16:54:59.821 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-02 16:54:59.824 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-03-02 16:54:59.825 +07:00 [INF] Route matched with {action = "RestructureListMonitoring", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean] RestructureListMonitoring(RestructureListBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-03-02 16:55:00.608 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [restructure] AS [r]
+2024-03-02 16:55:01.370 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[approveby_id], [t].[approve_date], [t].[mst_branch_id], [t].[mst_branch_pembukuan_id], [t].[mst_branch_proses_id], [t].[checkby_id], [t].[check_date], [t].[createby_id], [t].[create_date], [t].[denda], [t].[disc_tunggakan_denda], [t].[disc_tunggakan_margin], [t].[grace_periode], [t].[jenis_pengurangan_id], [t].[keterangan], [t].[last_update_id], [t].[last_update_date], [t].[loan_id], [t].[margin], [t].[margin_amount], [t].[margin_pembayaran], [t].[margin_pinalty], [t].[pembayaran_gp_id], [t].[pengurangan_nilai_margin], [t].[periode_diskon], [t].[permasalahan], [t].[pola_restruk_id], [t].[principal_pembayaran], [t].[principal_pinalty], [t].[status_id], [t].[tgl_akhir_periode_diskon], [t].[tgl_awal_periode_diskon], [t].[tgl_jatuh_tempo_baru], [t].[total_diskon_margin], [t].[value_date], [t0].[id], [t0].[name], [t0].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t1].[id], [t1].[code], [t1].[name], [t1].[Type]
+FROM (
+    SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date]
+    FROM [restructure] AS [r]
+    ORDER BY [r].[id] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t0] ON [t].[status_id] = [t0].[id]
+LEFT JOIN [master_loan] AS [m] ON [t].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [t].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [t].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [t].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t1] ON [t].[pola_restruk_id] = [t1].[id]
+ORDER BY [t].[id] DESC
+2024-03-02 16:55:01.378 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-02 16:55:01.381 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium) in 1554.9273ms
+2024-03-02 16:55:01.383 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-03-02 16:55:01.384 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - - - 200 - application/json;+charset=utf-8 1591.5654ms
+2024-03-02 17:11:16.005 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/nasabah/list - -
+2024-03-02 17:11:16.009 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-02 17:11:16.110 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-02 17:11:16.116 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.ListDeskCall (Collectium)'
+2024-03-02 17:11:16.162 +07:00 [INF] Route matched with {action = "ListDeskCall", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollResponseBean] ListDeskCall(Collectium.Model.Bean.ListRequest.CollListRequestBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-03-02 17:11:16.380 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+WHERE [m].[status] = 1
+2024-03-02 17:11:16.428 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2024-03-02 17:11:16.430 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2024-03-02 17:11:16.608 +07:00 [INF] Executed DbCommand (82ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [a].[id], [a].[code], [a].[core_code], [a].[create_date], [a].[name], [a].[status_id], [a].[update_date]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+    FROM [master_loan] AS [m]
+    WHERE [m].[status] = 1
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+LEFT JOIN [collection_call] AS [c] ON [t].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+LEFT JOIN [branch] AS [b] ON [c].[branch_id] = [b].[id]
+LEFT JOIN [area] AS [a] ON [b].[area_id] = [a].[id]
+ORDER BY [t].[id] DESC
+2024-03-02 17:11:16.839 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.CollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-02 17:11:16.900 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.ListDeskCall (Collectium) in 733.8386ms
+2024-03-02 17:11:16.902 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.ListDeskCall (Collectium)'
+2024-03-02 17:11:16.905 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/nasabah/list - - - 200 - application/json;+charset=utf-8 909.4968ms
+2024-03-02 17:12:32.056 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/nasabah/list - -
+2024-03-02 17:12:32.058 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-02 17:12:32.085 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-02 17:12:32.090 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.ListDeskCall (Collectium)'
+2024-03-02 17:12:32.092 +07:00 [INF] Route matched with {action = "ListDeskCall", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollResponseBean] ListDeskCall(Collectium.Model.Bean.ListRequest.CollListRequestBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-03-02 17:12:56.666 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+WHERE [m].[status] = 1
+2024-03-02 17:12:56.700 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [a].[id], [a].[code], [a].[core_code], [a].[create_date], [a].[name], [a].[status_id], [a].[update_date]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+    FROM [master_loan] AS [m]
+    WHERE [m].[status] = 1
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+LEFT JOIN [collection_call] AS [c] ON [t].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+LEFT JOIN [branch] AS [b] ON [c].[branch_id] = [b].[id]
+LEFT JOIN [area] AS [a] ON [b].[area_id] = [a].[id]
+ORDER BY [t].[id] DESC
+2024-03-02 17:12:56.716 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.CollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-02 17:12:56.719 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.ListDeskCall (Collectium) in 24625.8807ms
+2024-03-02 17:12:56.721 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.ListDeskCall (Collectium)'
+2024-03-02 17:12:56.722 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/nasabah/list - - - 200 - application/json;+charset=utf-8 24666.4011ms
+2024-03-02 17:13:02.188 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/nasabah/list - -
+2024-03-02 17:13:02.193 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-02 17:13:02.219 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-02 17:13:02.224 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.ListDeskCall (Collectium)'
+2024-03-02 17:13:02.225 +07:00 [INF] Route matched with {action = "ListDeskCall", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollResponseBean] ListDeskCall(Collectium.Model.Bean.ListRequest.CollListRequestBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-03-02 17:15:48.811 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+WHERE [m].[status] = 1
+2024-03-02 17:15:50.483 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [a].[id], [a].[code], [a].[core_code], [a].[create_date], [a].[name], [a].[status_id], [a].[update_date]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+    FROM [master_loan] AS [m]
+    WHERE [m].[status] = 1
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+LEFT JOIN [collection_call] AS [c] ON [t].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+LEFT JOIN [branch] AS [b] ON [c].[branch_id] = [b].[id]
+LEFT JOIN [area] AS [a] ON [b].[area_id] = [a].[id]
+ORDER BY [t].[id] DESC
+2024-03-02 17:16:10.291 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.CollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-02 17:16:10.296 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.ListDeskCall (Collectium) in 188069.0442ms
+2024-03-02 17:16:10.297 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.ListDeskCall (Collectium)'
+2024-03-02 17:16:10.298 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/nasabah/list - - - 0 - application/json;+charset=utf-8 188109.8092ms
+2024-03-02 17:16:17.931 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/nasabah/list - -
+2024-03-02 17:16:17.950 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-02 17:16:17.981 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-02 17:16:17.988 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.ListDeskCall (Collectium)'
+2024-03-02 17:16:17.989 +07:00 [INF] Route matched with {action = "ListDeskCall", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollResponseBean] ListDeskCall(Collectium.Model.Bean.ListRequest.CollListRequestBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-03-02 17:16:19.376 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+WHERE [m].[status] = 1
+2024-03-02 17:16:19.399 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [a].[id], [a].[code], [a].[core_code], [a].[create_date], [a].[name], [a].[status_id], [a].[update_date]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+    FROM [master_loan] AS [m]
+    WHERE [m].[status] = 1
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+LEFT JOIN [collection_call] AS [c] ON [t].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+LEFT JOIN [branch] AS [b] ON [c].[branch_id] = [b].[id]
+LEFT JOIN [area] AS [a] ON [b].[area_id] = [a].[id]
+ORDER BY [t].[id] DESC
+2024-03-02 17:16:19.414 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.CollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-02 17:16:19.419 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.ListDeskCall (Collectium) in 1425.8623ms
+2024-03-02 17:16:19.422 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.ListDeskCall (Collectium)'
+2024-03-02 17:16:19.425 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/nasabah/list - - - 200 - application/json;+charset=utf-8 1494.7589ms

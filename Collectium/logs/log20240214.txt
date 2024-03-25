@@ -1,0 +1,97 @@
+2024-02-14 00:50:13.373 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (Size = 255) (DbType = AnsiString), @p5='?' (Size = 100) (DbType = AnsiString), @p6='?' (DbType = Int32), @p7='?' (Size = 255) (DbType = AnsiString), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [call_request] ([call_id], [create_date], [lat], [lon], [mime], [phone_no], [status_id], [url], [user_id])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [id]
+FROM [call_request]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-14 00:50:19.355 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'BRKIP'
+2024-02-14 00:50:21.557 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'BRKUSR'
+2024-02-14 00:50:22.109 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'BRKSEC'
+2024-02-14 00:50:25.047 +07:00 [INF] payload: {
+  "cmd": "admlogin"
+}
+2024-02-14 00:50:50.201 +07:00 [INF] {
+  "cmd": "admlogin"
+}
+2024-02-14 01:01:15.773 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'BRKIP'
+2024-02-14 01:02:17.331 +07:00 [INF] {
+  "cmd": "agentcc",
+  "event": "login",
+  "queue": "1000",
+  "agent": "8001",
+  "device": "101"
+}
+2024-02-14 01:07:51.757 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'BRKIP'
+2024-02-14 01:18:21.375 +07:00 [INF] {
+  "cmd": "agentcc",
+  "event": "login",
+  "queue": "1000",
+  "agent": "8001",
+  "device": "101"
+}
+2024-02-14 01:19:16.638 +07:00 [INF] do call:081244587944
+2024-02-14 01:19:42.904 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'BRKIP'
+2024-02-14 01:19:42.912 +07:00 [INF] {
+  "cmd": "ctc",
+  "dialto": "081244587944",
+  "timeout": "30",
+  "cid": "8001",
+  "dialfrom": "8001",
+  "v": "081244587944#2060"
+}
+2024-02-14 01:21:30.152 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'BRKIP'
+2024-02-14 01:21:30.158 +07:00 [INF] {
+  "cmd": "agentcc",
+  "event": "logoff",
+  "queue": "1000",
+  "agent": "8001",
+  "device": "101"
+}
+2024-02-14 01:52:34.230 +07:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'BRKIP'
+2024-02-14 01:52:34.240 +07:00 [INF] {
+  "cmd": "agentcc",
+  "event": "logoff",
+  "queue": "1000",
+  "agent": "8001",
+  "device": "101"
+}
+2024-02-14 01:54:40.453 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'BRKIP'
+2024-02-14 01:54:40.458 +07:00 [INF] {
+  "cmd": "agentcc",
+  "event": "logoff",
+  "queue": "1000",
+  "agent": "8001",
+  "device": "101"
+}
+2024-02-14 17:03:19.703 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.GenerateLetterResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-14 17:03:19.916 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.Call (Collectium) in 82834290.0734ms
+2024-02-14 17:03:20.027 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.Call (Collectium)'
+2024-02-14 17:03:20.054 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/call?Id=316 - - - 0 - application/json;+charset=utf-8 82834509.0525ms

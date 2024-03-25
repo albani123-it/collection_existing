@@ -1,0 +1,120 @@
+2024-03-03 02:32:11.327 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Master/recovery/dokumenrestruktur/list - -
+2024-03-03 02:32:11.418 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-03 02:32:11.567 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-03 02:32:11.593 +07:00 [INF] Executing endpoint 'Collectium.Controllers.MasterController.ListDocumentRestruktur (Collectium)'
+2024-03-03 02:32:11.613 +07:00 [INF] Route matched with {action = "ListDocumentRestruktur", controller = "Master"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Entity.DocumentRestruktur] ListDocumentRestruktur() on controller Collectium.Controllers.MasterController (Collectium).
+2024-03-03 02:32:19.633 +07:00 [INF] Executed DbCommand (130ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+FROM [generic_param] AS [g]
+WHERE [g].[Type] = N'DOCR'
+ORDER BY [g].[name]
+2024-03-03 02:32:30.221 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Entity.DocumentRestruktur, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-03 02:32:30.245 +07:00 [INF] Executed action Collectium.Controllers.MasterController.ListDocumentRestruktur (Collectium) in 18631.2491ms
+2024-03-03 02:32:30.247 +07:00 [INF] Executed endpoint 'Collectium.Controllers.MasterController.ListDocumentRestruktur (Collectium)'
+2024-03-03 02:32:30.248 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Master/recovery/dokumenrestruktur/list - - - 200 - application/json;+charset=utf-8 18927.0389ms
+2024-03-03 02:44:02.592 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Master/recovery/jenispengurangan/list - -
+2024-03-03 02:44:02.600 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-03 02:44:02.709 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-03 02:44:02.718 +07:00 [INF] Executing endpoint 'Collectium.Controllers.MasterController.ListJenisPengurangan (Collectium)'
+2024-03-03 02:44:02.722 +07:00 [INF] Route matched with {action = "ListJenisPengurangan", controller = "Master"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Entity.JenisPengurangan] ListJenisPengurangan() on controller Collectium.Controllers.MasterController (Collectium).
+2024-03-03 02:44:02.756 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+FROM [generic_param] AS [g]
+WHERE [g].[Type] = N'JENP'
+ORDER BY [g].[name]
+2024-03-03 02:44:02.762 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Entity.JenisPengurangan, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-03 02:44:02.766 +07:00 [INF] Executed action Collectium.Controllers.MasterController.ListJenisPengurangan (Collectium) in 42.9498ms
+2024-03-03 02:44:02.767 +07:00 [INF] Executed endpoint 'Collectium.Controllers.MasterController.ListJenisPengurangan (Collectium)'
+2024-03-03 02:44:02.767 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Master/recovery/jenispengurangan/list - - - 200 - application/json;+charset=utf-8 175.5123ms
+2024-03-03 02:44:16.719 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Master/recovery/polarestruktur/list - -
+2024-03-03 02:44:16.721 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-03 02:44:16.743 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-03 02:44:16.745 +07:00 [INF] Executing endpoint 'Collectium.Controllers.MasterController.ListPolaRestruktur (Collectium)'
+2024-03-03 02:44:16.747 +07:00 [INF] Route matched with {action = "ListPolaRestruktur", controller = "Master"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Entity.PolaRestruktur] ListPolaRestruktur() on controller Collectium.Controllers.MasterController (Collectium).
+2024-03-03 02:44:16.773 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+FROM [generic_param] AS [g]
+WHERE [g].[Type] = N'POLR'
+ORDER BY [g].[name]
+2024-03-03 02:44:16.776 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Entity.PolaRestruktur, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-03 02:44:16.780 +07:00 [INF] Executed action Collectium.Controllers.MasterController.ListPolaRestruktur (Collectium) in 31.5592ms
+2024-03-03 02:44:16.781 +07:00 [INF] Executed endpoint 'Collectium.Controllers.MasterController.ListPolaRestruktur (Collectium)'
+2024-03-03 02:44:16.781 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Master/recovery/polarestruktur/list - - - 200 - application/json;+charset=utf-8 62.7748ms
+2024-03-03 02:47:44.853 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Master/recovery/dokumenrestruktur/list - -
+2024-03-03 02:47:44.855 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-03 02:47:44.885 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-03 02:47:44.889 +07:00 [INF] Executing endpoint 'Collectium.Controllers.MasterController.ListDocumentRestruktur (Collectium)'
+2024-03-03 02:47:44.890 +07:00 [INF] Route matched with {action = "ListDocumentRestruktur", controller = "Master"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Entity.DocumentRestruktur] ListDocumentRestruktur() on controller Collectium.Controllers.MasterController (Collectium).
+2024-03-03 02:47:51.277 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+FROM [generic_param] AS [g]
+WHERE [g].[Type] = N'DOCR'
+ORDER BY [g].[name]
+2024-03-03 02:47:51.278 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Entity.DocumentRestruktur, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-03 02:47:51.279 +07:00 [INF] Executed action Collectium.Controllers.MasterController.ListDocumentRestruktur (Collectium) in 6387.3144ms
+2024-03-03 02:47:51.280 +07:00 [INF] Executed endpoint 'Collectium.Controllers.MasterController.ListDocumentRestruktur (Collectium)'
+2024-03-03 02:47:51.281 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Master/recovery/dokumenrestruktur/list - - - 200 - application/json;+charset=utf-8 6428.4277ms
+2024-03-03 02:48:00.940 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Master/recovery/dokumenrestruktur/list - -
+2024-03-03 02:48:00.945 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-03 02:48:00.967 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-03 02:48:00.970 +07:00 [INF] Executing endpoint 'Collectium.Controllers.MasterController.ListDocumentRestruktur (Collectium)'
+2024-03-03 02:48:00.971 +07:00 [INF] Route matched with {action = "ListDocumentRestruktur", controller = "Master"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Entity.DocumentRestruktur] ListDocumentRestruktur() on controller Collectium.Controllers.MasterController (Collectium).
+2024-03-03 02:48:07.075 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+FROM [generic_param] AS [g]
+WHERE [g].[Type] = N'DOCR'
+ORDER BY [g].[name]
+2024-03-03 02:48:41.760 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Entity.DocumentRestruktur, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-03 02:48:41.775 +07:00 [INF] Executed action Collectium.Controllers.MasterController.ListDocumentRestruktur (Collectium) in 40801.9187ms
+2024-03-03 02:48:41.779 +07:00 [INF] Executed endpoint 'Collectium.Controllers.MasterController.ListDocumentRestruktur (Collectium)'
+2024-03-03 02:48:41.780 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Master/recovery/dokumenrestruktur/list - - - 200 - application/json;+charset=utf-8 40839.4773ms

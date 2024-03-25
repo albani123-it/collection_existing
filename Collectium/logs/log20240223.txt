@@ -1,0 +1,220 @@
+2024-02-23 00:19:59.149 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-23 00:19:59.644 +07:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-02-23 00:19:59.645 +07:00 [INF] Quartz Scheduler created
+2024-02-23 00:19:59.646 +07:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-02-23 00:19:59.647 +07:00 [INF] RAMJobStore initialized.
+2024-02-23 00:19:59.648 +07:00 [INF] Quartz Scheduler 3.5.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-02-23 00:19:59.649 +07:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-02-23 00:19:59.650 +07:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-02-23 00:19:59.694 +07:00 [INF] Adding 1 jobs, 1 triggers.
+2024-02-23 00:19:59.697 +07:00 [INF] Adding job: DEFAULT.ConconcurrentJob
+2024-02-23 00:20:00.253 +07:00 [INF] Now listening on: https://localhost:7199
+2024-02-23 00:20:00.257 +07:00 [INF] Now listening on: http://localhost:5199
+2024-02-23 00:20:00.259 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-23 00:20:00.260 +07:00 [INF] Hosting environment: Development
+2024-02-23 00:20:00.261 +07:00 [INF] Content root path: D:\Old Project\crms pak jose\dotnet\Collectium\
+2024-02-23 00:20:00.270 +07:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-02-23 00:20:01.679 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger - -
+2024-02-23 00:20:01.734 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/index.html - -
+2024-02-23 00:20:01.823 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger - - - 0 - - 148.3866ms
+2024-02-23 00:20:02.177 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/index.html - - - 200 - text/html;charset=utf-8 444.2665ms
+2024-02-23 00:20:02.213 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - -
+2024-02-23 00:20:02.222 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_vs/browserLink - -
+2024-02-23 00:20:02.219 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/swagger-ui.css - -
+2024-02-23 00:20:02.387 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 173.9482ms
+2024-02-23 00:20:02.409 +07:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-02-23 00:20:02.410 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 187.9280ms
+2024-02-23 00:20:02.411 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/swagger-ui.css - - - 0 143632 text/css 192.0477ms
+2024-02-23 00:20:02.422 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - -
+2024-02-23 00:20:02.430 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-02-23 00:20:02.432 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - - - 0 628 image/png 9.4601ms
+2024-02-23 00:20:02.459 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - -
+2024-02-23 00:20:02.808 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 348.9133ms
+2024-02-23 00:23:17.898 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/User/login application/json 52
+2024-02-23 00:23:19.092 +07:00 [INF] CORS policy execution successful.
+2024-02-23 00:23:19.240 +07:00 [INF] Executing endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-23 00:23:19.265 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[System.String] Login(Collectium.Model.Bean.Request.LoginRequestBean) on controller IseeBackend.Controllers.UserController (Collectium).
+2024-02-23 00:23:20.811 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-23 00:23:22.321 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'MAXP'
+2024-02-23 00:23:22.682 +07:00 [INF] Executed DbCommand (151ms) [Parameters=[@__filter_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [t].[id], [t].[name], [t].[Type]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+WHERE ([u].[username] = @__filter_Username_0) AND ([t].[name] = N'AKTIF')
+2024-02-23 00:23:23.055 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100) (DbType = AnsiString), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [token] ([expire], [firstname], [user_id])
+VALUES (@p0, @p1, @p2);
+SELECT [id]
+FROM [token]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-23 00:23:23.467 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-02-23 00:23:23.483 +07:00 [INF] Executed action IseeBackend.Controllers.UserController.Login (Collectium) in 4209.8571ms
+2024-02-23 00:23:23.486 +07:00 [INF] Executed endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-23 00:23:23.494 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 5596.9749ms
+2024-02-23 01:42:51.860 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/User/login application/json 52
+2024-02-23 01:42:52.207 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-23 01:42:52.384 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-23 01:42:52.449 +07:00 [INF] CORS policy execution successful.
+2024-02-23 01:42:52.470 +07:00 [INF] Executing endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-23 01:42:52.481 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[System.String] Login(Collectium.Model.Bean.Request.LoginRequestBean) on controller IseeBackend.Controllers.UserController (Collectium).
+2024-02-23 01:42:52.506 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'MAXP'
+2024-02-23 01:42:52.518 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__filter_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [t].[id], [t].[name], [t].[Type]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+WHERE ([u].[username] = @__filter_Username_0) AND ([t].[name] = N'AKTIF')
+2024-02-23 01:42:52.544 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100) (DbType = AnsiString), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [token] ([expire], [firstname], [user_id])
+VALUES (@p0, @p1, @p2);
+SELECT [id]
+FROM [token]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-23 01:42:52.571 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-02-23 01:42:52.575 +07:00 [INF] Executed action IseeBackend.Controllers.UserController.Login (Collectium) in 92.3126ms
+2024-02-23 01:42:52.577 +07:00 [INF] Executed endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-23 01:42:52.578 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 724.5377ms
+2024-02-23 01:43:50.646 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/trace?StartDate=2023-07-13&EndDate=2024-02-23 - -
+2024-02-23 01:43:50.721 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-23 01:43:50.750 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-23 01:43:50.777 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.Trace (Collectium)'
+2024-02-23 01:43:50.798 +07:00 [INF] Route matched with {action = "Trace", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollTraceResponseBean] Trace(Collectium.Model.Bean.ListRequest.SpvMonListBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-23 01:43:51.044 +07:00 [INF] Executed DbCommand (126ms) [Parameters=[@__dst_0='?' (DbType = DateTime), @__ded_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [collection_trace] AS [c]
+WHERE (CONVERT(date, [c].[trace_date]) >= @__dst_0) AND (CONVERT(date, [c].[trace_date]) <= @__ded_1)
+2024-02-23 01:43:51.071 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2024-02-23 01:43:51.073 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2024-02-23 01:43:51.203 +07:00 [INF] Executed DbCommand (78ms) [Parameters=[@__dst_0='?' (DbType = DateTime), @__ded_1='?' (DbType = DateTime), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[amount], [t].[call_by], [t].[call_id], [t].[dpd], [t].[job_rule_id], [t].[kolek], [t].[result], [t].[trace_date], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[rl_code], [r].[create_date], [r].[rl_desc], [r].[status_id], [r].[update_date], [r].[is_dc], [r].[is_fc], [c0].[id], [c0].[acc_no], [c0].[branch_id], [c0].[call_amount], [c0].[call_by], [c0].[call_date], [c0].[call_name], [c0].[call_notes], [c0].[call_result_date], [c0].[call_result_hh], [c0].[call_result_hhmm], [c0].[call_result_id], [c0].[call_result_mm], [c0].[add_id], [c0].[loan_id], [c0].[call_reason], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode]
+FROM (
+    SELECT [c].[id], [c].[acc_no], [c].[amount], [c].[call_by], [c].[call_id], [c].[dpd], [c].[job_rule_id], [c].[kolek], [c].[result], [c].[trace_date]
+    FROM [collection_trace] AS [c]
+    WHERE (CONVERT(date, [c].[trace_date]) >= @__dst_0) AND (CONVERT(date, [c].[trace_date]) <= @__ded_1)
+    ORDER BY (SELECT 1)
+    OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+) AS [t]
+LEFT JOIN [users] AS [u] ON [t].[call_by] = [u].[id]
+LEFT JOIN [rfresult] AS [r] ON [t].[result] = [r].[id]
+LEFT JOIN [collection_call] AS [c0] ON [t].[call_id] = [c0].[id]
+LEFT JOIN [master_loan] AS [m] ON [c0].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+ORDER BY [t].[id] DESC
+2024-02-23 01:43:51.584 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.CollTraceResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-23 01:43:51.629 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.Trace (Collectium) in 826.9303ms
+2024-02-23 01:43:51.632 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.Trace (Collectium)'
+2024-02-23 01:43:51.634 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/trace?StartDate=2023-07-13&EndDate=2024-02-23 - - - 200 - application/json;+charset=utf-8 988.0859ms
+2024-02-23 01:44:34.498 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/trace?StartDate=2023-07-13&EndDate=2024-02-23 - -
+2024-02-23 01:44:34.503 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-23 01:44:34.530 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-23 01:44:34.540 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.Trace (Collectium)'
+2024-02-23 01:44:34.544 +07:00 [INF] Route matched with {action = "Trace", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollTraceResponseBean] Trace(Collectium.Model.Bean.ListRequest.SpvMonListBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-23 01:53:41.472 +07:00 [INF] Executed DbCommand (242ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[acc_no], [c].[amount], [c].[call_by], [c].[call_id], [c].[dpd], [c].[job_rule_id], [c].[kolek], [c].[result], [c].[trace_date], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[rl_code], [r].[create_date], [r].[rl_desc], [r].[status_id], [r].[update_date], [r].[is_dc], [r].[is_fc], [c0].[id], [c0].[acc_no], [c0].[branch_id], [c0].[call_amount], [c0].[call_by], [c0].[call_date], [c0].[call_name], [c0].[call_notes], [c0].[call_result_date], [c0].[call_result_hh], [c0].[call_result_hhmm], [c0].[call_result_id], [c0].[call_result_mm], [c0].[add_id], [c0].[loan_id], [c0].[call_reason], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode]
+FROM [collection_trace] AS [c]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+LEFT JOIN [rfresult] AS [r] ON [c].[result] = [r].[id]
+LEFT JOIN [collection_call] AS [c0] ON [c].[call_id] = [c0].[id]
+LEFT JOIN [master_loan] AS [m] ON [c0].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+2024-02-23 01:53:46.226 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.Threading.ThreadAbortException: System error.
+   at Microsoft.Data.SqlClient.SNINativeMethodWrapper.SNIReadSyncOverAsync(SNIHandle pConn, IntPtr& ppNewPacket, Int32 timeout)
+   at Microsoft.Data.SqlClient.TdsParserStateObjectNative.ReadSyncOverAsync(Int32 timeoutRemaining, UInt32& error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByteArray(Span`1 buff, Int32 len, Int32& totalRead)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadInt32(Int32& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryReadSqlValueInternal(SqlBuffer value, Byte tdsType, Int32 length, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TryReadSqlValue(SqlBuffer value, SqlMetaDataPriv md, Int32 length, TdsParserStateObject stateObj, SqlCommandColumnEncryptionSetting columnEncryptionOverride, String columnName, SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadColumnData()
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadColumnInternal(Int32 i, Boolean readHeaderOnly, Boolean forStreaming)
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt32(Int32 i)
+   at lambda_method1694(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.Threading.ThreadAbortException: System error.
+   at Microsoft.Data.SqlClient.SNINativeMethodWrapper.SNIReadSyncOverAsync(SNIHandle pConn, IntPtr& ppNewPacket, Int32 timeout)
+   at Microsoft.Data.SqlClient.TdsParserStateObjectNative.ReadSyncOverAsync(Int32 timeoutRemaining, UInt32& error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByteArray(Span`1 buff, Int32 len, Int32& totalRead)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadInt32(Int32& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryReadSqlValueInternal(SqlBuffer value, Byte tdsType, Int32 length, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TryReadSqlValue(SqlBuffer value, SqlMetaDataPriv md, Int32 length, TdsParserStateObject stateObj, SqlCommandColumnEncryptionSetting columnEncryptionOverride, String columnName, SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadColumnData()
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadColumnInternal(Int32 i, Boolean readHeaderOnly, Boolean forStreaming)
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt32(Int32 i)
+   at lambda_method1694(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-23 01:59:43.129 +07:00 [ERR] Failed executing DbCommand (18ms) [Parameters=[@__dst_0='?' (DbType = DateTime), @__ded_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [collection_trace] AS [c]
+WHERE (CONVERT(date, [c].[trace_date]) >= @__dst_0) AND (CONVERT(date, [c].[trace_date]) <= @__ded_1)
+2024-02-23 01:59:43.140 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()

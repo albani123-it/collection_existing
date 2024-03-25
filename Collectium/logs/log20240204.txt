@@ -1,0 +1,678 @@
+2024-02-04 00:58:32.710 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-04 00:58:33.384 +07:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-02-04 00:58:33.385 +07:00 [INF] Quartz Scheduler created
+2024-02-04 00:58:33.386 +07:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-02-04 00:58:33.387 +07:00 [INF] RAMJobStore initialized.
+2024-02-04 00:58:33.388 +07:00 [INF] Quartz Scheduler 3.5.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-02-04 00:58:33.389 +07:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-02-04 00:58:33.390 +07:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-02-04 00:58:33.459 +07:00 [INF] Adding 1 jobs, 1 triggers.
+2024-02-04 00:58:33.463 +07:00 [INF] Adding job: DEFAULT.ConconcurrentJob
+2024-02-04 00:58:34.100 +07:00 [INF] Now listening on: https://localhost:7199
+2024-02-04 00:58:34.101 +07:00 [INF] Now listening on: http://localhost:5199
+2024-02-04 00:58:34.102 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-04 00:58:34.107 +07:00 [INF] Hosting environment: Development
+2024-02-04 00:58:34.107 +07:00 [INF] Content root path: D:\Old Project\crms pak jose\dotnet\Collectium\
+2024-02-04 00:58:34.115 +07:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-02-04 00:58:35.541 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger - -
+2024-02-04 00:58:35.569 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/index.html - -
+2024-02-04 00:58:35.667 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger - - - 0 - - 131.0406ms
+2024-02-04 00:58:36.045 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/index.html - - - 200 - text/html;charset=utf-8 476.6334ms
+2024-02-04 00:58:36.080 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - -
+2024-02-04 00:58:36.089 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_vs/browserLink - -
+2024-02-04 00:58:36.120 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 56.2966ms
+2024-02-04 00:58:36.169 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 79.7485ms
+2024-02-04 00:58:36.175 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - -
+2024-02-04 00:58:36.202 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-02-04 00:58:36.203 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - - - 0 628 image/png 27.4800ms
+2024-02-04 00:58:36.217 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - -
+2024-02-04 00:58:36.601 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 383.6112ms
+2024-02-04 00:59:28.115 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/User/login application/json 52
+2024-02-04 00:59:29.261 +07:00 [INF] CORS policy execution successful.
+2024-02-04 00:59:29.406 +07:00 [INF] Executing endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-04 00:59:29.427 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[System.String] Login(Collectium.Model.Bean.Request.LoginRequestBean) on controller IseeBackend.Controllers.UserController (Collectium).
+2024-02-04 00:59:30.939 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-04 00:59:32.372 +07:00 [INF] Executed DbCommand (79ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'MAXP'
+2024-02-04 00:59:32.636 +07:00 [INF] Executed DbCommand (83ms) [Parameters=[@__filter_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [t].[id], [t].[name], [t].[Type]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+WHERE ([u].[username] = @__filter_Username_0) AND ([t].[name] = N'AKTIF')
+2024-02-04 00:59:33.191 +07:00 [INF] Executed DbCommand (114ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100) (DbType = AnsiString), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [token] ([expire], [firstname], [user_id])
+VALUES (@p0, @p1, @p2);
+SELECT [id]
+FROM [token]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-04 00:59:33.610 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-02-04 00:59:33.622 +07:00 [INF] Executed action IseeBackend.Controllers.UserController.Login (Collectium) in 4188.3334ms
+2024-02-04 00:59:33.626 +07:00 [INF] Executed endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-04 00:59:33.634 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 5518.5287ms
+2024-02-04 01:01:08.975 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/letter/view?LoanId=4901 application/json -
+2024-02-04 01:01:09.068 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-04 01:01:09.105 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-04 01:01:09.146 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetter (Collectium)'
+2024-02-04 01:01:09.152 +07:00 [INF] Route matched with {action = "GenerateLetter", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.GenerateLetterResponseBean] GenerateLetter(Collectium.Model.Bean.ListRequest.GenerateLetterRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-04 01:01:14.582 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 01:02:58.719 +07:00 [INF] Executed DbCommand (290ms) [Parameters=[@__filter_LoanId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([g].[loan_id] = @__filter_LoanId_0) AND ([g].[type_letter] = N'ST')) AND ([t].[name] = N'AKTIF')
+2024-02-04 01:03:43.527 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.GenerateLetterResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-04 01:03:43.539 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetter (Collectium) in 154385.8705ms
+2024-02-04 01:03:43.540 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetter (Collectium)'
+2024-02-04 01:03:43.541 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7199/api/Collection/letter/view?LoanId=4901 application/json - - 200 - application/json;+charset=utf-8 154565.9872ms
+2024-02-04 02:42:21.572 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=4901 application/json -
+2024-02-04 02:42:21.672 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-04 02:42:21.759 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-04 02:42:21.779 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:42:21.784 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-04 02:42:27.460 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 02:42:46.915 +07:00 [INF] Executed DbCommand (80ms) [Parameters=[@__acc_0='?' (Size = 25) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[acc_no] = @__acc_0
+2024-02-04 02:42:50.397 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-04 02:42:54.870 +07:00 [INF] Executed DbCommand (94ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'JSPR'
+2024-02-04 02:48:55.598 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium) in 393811.3179ms
+2024-02-04 02:48:55.602 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/generate?Id=4901&Code=SP2 - -
+2024-02-04 02:48:55.615 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:48:55.616 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-04 02:48:55.675 +07:00 [INF] Executed DbCommand (52ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-04 02:48:55.679 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'stringToEscape')
+   at System.UriHelper.EscapeString(String stringToEscape, Boolean checkExistingEscaped, ReadOnlySpan`1 unreserved, Char forceEscape1, Char forceEscape2)
+   at System.Uri.EscapeDataString(String stringToEscape)
+   at Collectium.Service.GenerateLetterService.GenerateLetterV2(GenerateLetterPdfRequestBean filter) in D:\Old Project\crms pak jose\dotnet\Collectium\Service\GenerateLetterService.cs:line 398
+   at Collectium.Controllers.CollectionController.GenerateLetterPdf(GenerateLetterPdfRequestBean bean) in D:\Old Project\crms pak jose\dotnet\Collectium\Controllers\CollectionController.cs:line 413
+   at lambda_method1399(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Collectium.Config.JWTMiddleware.Invoke(HttpContext context, UserService userService) in D:\Old Project\crms pak jose\dotnet\Collectium\Config\JWTMiddleware.cs:line 43
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-04 02:48:55.686 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:48:56.127 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-04 02:48:56.138 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=4901 application/json - - 500 - text/plain;+charset=utf-8 394567.8640ms
+2024-02-04 02:48:59.955 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 02:49:08.101 +07:00 [INF] Executed DbCommand (36ms) [Parameters=[@__loanId_0='?' (DbType = Int32), @__code_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN [master_loan] AS [m] ON [g].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([m].[id] = @__loanId_0) AND ([g].[type_letter] = @__code_1)) AND ([t].[name] = N'AKTIF')
+2024-02-04 02:49:09.203 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[@__loanId_0='?' (DbType = Int32), @__code_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN [master_loan] AS [m] ON [g].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([m].[id] = @__loanId_0) AND ([g].[type_letter] = @__code_1)) AND ([t].[name] = N'AKTIF')
+2024-02-04 02:49:09.228 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[id], [m].[cu_address], [m].[cu_borndate], [m].[cu_bornplace], [m].[branch_id], [m].[cu_cif], [m].[city], [m].[cu_city], [m].[cu_company], [m].[cu_income], [m].[cu_occupation], [m].[cu_custtype], [m].[cu_email], [m].[cu_gender], [m].[cu_hmphone], [m].[cu_idtype], [m].[cu_idnumber], [m].[cu_incometype], [m].[jabatan], [m].[kecamatan], [m].[cu_kecamatan], [m].[kelurahan], [m].[cu_kelurahan], [m].[cu_maritalstatus], [m].[cu_mobilephone], [m].[cu_name], [m].[cu_nationality], [m].[pekerjaan], [m].[provinsi], [m].[cu_provinsi], [m].[cu_rt], [m].[cu_rw], [m].[STG_DATE], [m].[cu_zipcode]
+FROM [master_customer] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 02:49:09.336 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[loan_id] = @__p_0
+2024-02-04 02:49:09.394 +07:00 [INF] Executed DbCommand (54ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-04 02:49:09.432 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__type_0='?' (Size = 50) (DbType = AnsiString), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[id], [c].[branch_id], [c].[create_date], [c].[ctr], [c].[month], [c].[status_id], [c].[counter_type], [c].[update_date], [c].[year]
+FROM [counter] AS [c]
+WHERE ([c].[counter_type] = @__type_0) AND ([c].[year] = @__year_1)
+2024-02-04 02:49:09.542 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50) (DbType = AnsiString), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [counter] ([branch_id], [create_date], [ctr], [month], [status_id], [counter_type], [update_date], [year])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [id]
+FROM [counter]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-04 02:49:09.644 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[id], [s].[name], [s].[Type]
+FROM [status] AS [s]
+WHERE ([s].[Type] = N'GEN') AND ([s].[name] = @__name_0)
+2024-02-04 02:49:09.650 +07:00 [INF] dpd: 27
+2024-02-04 02:49:26.649 +07:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-02-04 02:49:26.653 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium) in 30522.8748ms
+2024-02-04 02:49:26.654 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:49:26.654 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/generate?Id=4901&Code=SP2 - - - 400 - application/problem+json;+charset=utf-8 31051.9747ms
+2024-02-04 02:49:44.916 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=4901&Code=SP2 application/json -
+2024-02-04 02:49:44.920 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-04 02:49:44.963 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-04 02:49:44.967 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:49:44.969 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-04 02:49:48.306 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 02:49:54.020 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__loanId_0='?' (DbType = Int32), @__code_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN [master_loan] AS [m] ON [g].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([m].[id] = @__loanId_0) AND ([g].[type_letter] = @__code_1)) AND ([t].[name] = N'AKTIF')
+2024-02-04 02:49:54.591 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__loanId_0='?' (DbType = Int32), @__code_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN [master_loan] AS [m] ON [g].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([m].[id] = @__loanId_0) AND ([g].[type_letter] = @__code_1)) AND ([t].[name] = N'AKTIF')
+2024-02-04 02:49:54.689 +07:00 [INF] Executed DbCommand (92ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[id], [m].[cu_address], [m].[cu_borndate], [m].[cu_bornplace], [m].[branch_id], [m].[cu_cif], [m].[city], [m].[cu_city], [m].[cu_company], [m].[cu_income], [m].[cu_occupation], [m].[cu_custtype], [m].[cu_email], [m].[cu_gender], [m].[cu_hmphone], [m].[cu_idtype], [m].[cu_idnumber], [m].[cu_incometype], [m].[jabatan], [m].[kecamatan], [m].[cu_kecamatan], [m].[kelurahan], [m].[cu_kelurahan], [m].[cu_maritalstatus], [m].[cu_mobilephone], [m].[cu_name], [m].[cu_nationality], [m].[pekerjaan], [m].[provinsi], [m].[cu_provinsi], [m].[cu_rt], [m].[cu_rw], [m].[STG_DATE], [m].[cu_zipcode]
+FROM [master_customer] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 02:49:54.710 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[loan_id] = @__p_0
+2024-02-04 02:49:54.722 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-04 02:49:54.738 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__type_0='?' (Size = 50) (DbType = AnsiString), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[id], [c].[branch_id], [c].[create_date], [c].[ctr], [c].[month], [c].[status_id], [c].[counter_type], [c].[update_date], [c].[year]
+FROM [counter] AS [c]
+WHERE ([c].[counter_type] = @__type_0) AND ([c].[year] = @__year_1)
+2024-02-04 02:49:54.820 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50) (DbType = AnsiString), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [counter] SET [branch_id] = @p0, [create_date] = @p1, [ctr] = @p2, [month] = @p3, [status_id] = @p4, [counter_type] = @p5, [update_date] = @p6, [year] = @p7
+WHERE [id] = @p8;
+SELECT @@ROWCOUNT;
+2024-02-04 02:49:54.891 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@__name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[id], [s].[name], [s].[Type]
+FROM [status] AS [s]
+WHERE ([s].[Type] = N'GEN') AND ([s].[name] = @__name_0)
+2024-02-04 02:49:54.893 +07:00 [INF] dpd: 27
+2024-02-04 02:50:00.456 +07:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-02-04 02:50:00.457 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium) in 15485.3964ms
+2024-02-04 02:50:00.459 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:50:00.459 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=4901&Code=SP2 application/json - - 400 - application/problem+json;+charset=utf-8 15542.7888ms
+2024-02-04 02:50:14.893 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=4901&Code=ST application/json -
+2024-02-04 02:50:14.896 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-04 02:50:14.918 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-04 02:50:14.922 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:50:14.923 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-04 02:50:17.909 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 02:50:17.928 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__loanId_0='?' (DbType = Int32), @__code_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN [master_loan] AS [m] ON [g].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([m].[id] = @__loanId_0) AND ([g].[type_letter] = @__code_1)) AND ([t].[name] = N'AKTIF')
+2024-02-04 02:50:17.945 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__acc_0='?' (Size = 25) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[acc_no] = @__acc_0
+2024-02-04 02:50:17.968 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-04 02:50:17.982 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'JSPR'
+2024-02-04 02:50:17.990 +07:00 [INF] url: reports/collectium/surat_teguran.pdf?no_surat=SK%2FST%2F3103%2FGREENVILLE%2FXI%2F2023&tgl=29 November 2023&nama_nasabah=MUHAMAD&jumlah=Rp. 4.455.514,000&terbilang=Empat Juta Empat Ratus Lima Puluh Lima Ribu Lima Ratus Empat Belas Rupiah&tgl_bayar=29 November 2023&cabang=Kantor Cabang Pembantu Greenville&no_sp1=&no_sp2=&tgl_sp1=&tgl_sp2=&senior_officer=Nama PC GREENVILLE-KCP&kota=Jakarta&cabang_faks=(021) 560-5604&cabang_telepon=(021) 560-5658, 565-1661, 566-8068&cabang_alamat=Jl. Mangga Raya Unit 21 A No. 7, Greenville Jakarta Barat - 11510
+2024-02-04 02:50:26.073 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium) in 11149.554ms
+2024-02-04 02:50:26.076 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:50:26.092 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Buffer cannot be null. (Parameter 'buffer')
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at System.IO.MemoryStream..ctor(Byte[] buffer)
+   at Collectium.Service.GenerateLetterService.GenerateLetterV2(GenerateLetterPdfRequestBean filter) in D:\Old Project\crms pak jose\dotnet\Collectium\Service\GenerateLetterService.cs:line 436
+   at Collectium.Controllers.CollectionController.GenerateLetterPdf(GenerateLetterPdfRequestBean bean) in D:\Old Project\crms pak jose\dotnet\Collectium\Controllers\CollectionController.cs:line 413
+   at lambda_method1399(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Collectium.Config.JWTMiddleware.Invoke(HttpContext context, UserService userService) in D:\Old Project\crms pak jose\dotnet\Collectium\Config\JWTMiddleware.cs:line 43
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-04 02:50:26.103 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=4901&Code=ST application/json - - 500 - text/plain;+charset=utf-8 11209.8728ms
+2024-02-04 02:50:30.952 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=4901&Code=ST application/json -
+2024-02-04 02:50:30.955 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-04 02:50:30.986 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-04 02:50:30.988 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:50:30.988 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-04 02:50:33.852 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 02:50:34.735 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__loanId_0='?' (DbType = Int32), @__code_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN [master_loan] AS [m] ON [g].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([m].[id] = @__loanId_0) AND ([g].[type_letter] = @__code_1)) AND ([t].[name] = N'AKTIF')
+2024-02-04 02:50:45.976 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__acc_0='?' (Size = 25) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[acc_no] = @__acc_0
+2024-02-04 02:50:59.466 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-04 02:51:03.285 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'JSPR'
+2024-02-04 02:51:38.656 +07:00 [INF] url: reports/collectium/surat_teguran.pdf?no_surat=SK%2FST%2F3103%2FGREENVILLE%2FXI%2F2023&tgl=29 November 2023&nama_nasabah=MUHAMAD&jumlah=Rp. 4.455.514,000&terbilang=Empat Juta Empat Ratus Lima Puluh Lima Ribu Lima Ratus Empat Belas Rupiah&tgl_bayar=29 November 2023&cabang=Kantor Cabang Pembantu Greenville&no_sp1=&no_sp2=&tgl_sp1=&tgl_sp2=&senior_officer=Nama PC GREENVILLE-KCP&kota=Jakarta&cabang_faks=(021) 560-5604&cabang_telepon=(021) 560-5658, 565-1661, 566-8068&cabang_alamat=Jl. Mangga Raya Unit 21 A No. 7, Greenville Jakarta Barat - 11510
+2024-02-04 02:51:57.671 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium) in 86681.7272ms
+2024-02-04 02:51:57.675 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:51:57.697 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Buffer cannot be null. (Parameter 'buffer')
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at System.IO.MemoryStream..ctor(Byte[] buffer)
+   at Collectium.Service.GenerateLetterService.GenerateLetterV2(GenerateLetterPdfRequestBean filter) in D:\Old Project\crms pak jose\dotnet\Collectium\Service\GenerateLetterService.cs:line 436
+   at Collectium.Controllers.CollectionController.GenerateLetterPdf(GenerateLetterPdfRequestBean bean) in D:\Old Project\crms pak jose\dotnet\Collectium\Controllers\CollectionController.cs:line 413
+   at lambda_method1399(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Collectium.Config.JWTMiddleware.Invoke(HttpContext context, UserService userService) in D:\Old Project\crms pak jose\dotnet\Collectium\Config\JWTMiddleware.cs:line 43
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-04 02:51:57.710 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=4901&Code=ST application/json - - 500 - text/plain;+charset=utf-8 86758.4613ms
+2024-02-04 02:52:17.613 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=224&Code=ST application/json -
+2024-02-04 02:52:17.617 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-04 02:52:17.649 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-04 02:52:17.652 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:52:17.653 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-04 02:52:20.681 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 02:52:21.639 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[@__loanId_0='?' (DbType = Int32), @__code_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN [master_loan] AS [m] ON [g].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([m].[id] = @__loanId_0) AND ([g].[type_letter] = @__code_1)) AND ([t].[name] = N'AKTIF')
+2024-02-04 02:52:28.381 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__loanId_0='?' (DbType = Int32), @__code_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN [master_loan] AS [m] ON [g].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([m].[id] = @__loanId_0) AND ([g].[type_letter] = @__code_1)) AND ([t].[name] = N'AKTIF')
+2024-02-04 02:52:28.393 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[id], [m].[cu_address], [m].[cu_borndate], [m].[cu_bornplace], [m].[branch_id], [m].[cu_cif], [m].[city], [m].[cu_city], [m].[cu_company], [m].[cu_income], [m].[cu_occupation], [m].[cu_custtype], [m].[cu_email], [m].[cu_gender], [m].[cu_hmphone], [m].[cu_idtype], [m].[cu_idnumber], [m].[cu_incometype], [m].[jabatan], [m].[kecamatan], [m].[cu_kecamatan], [m].[kelurahan], [m].[cu_kelurahan], [m].[cu_maritalstatus], [m].[cu_mobilephone], [m].[cu_name], [m].[cu_nationality], [m].[pekerjaan], [m].[provinsi], [m].[cu_provinsi], [m].[cu_rt], [m].[cu_rw], [m].[STG_DATE], [m].[cu_zipcode]
+FROM [master_customer] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 02:52:28.404 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[loan_id] = @__p_0
+2024-02-04 02:52:28.415 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-04 02:52:28.422 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__type_0='?' (Size = 50) (DbType = AnsiString), @__year_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[id], [c].[branch_id], [c].[create_date], [c].[ctr], [c].[month], [c].[status_id], [c].[counter_type], [c].[update_date], [c].[year]
+FROM [counter] AS [c]
+WHERE ([c].[counter_type] = @__type_0) AND ([c].[year] = @__year_1)
+2024-02-04 02:52:28.454 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50) (DbType = AnsiString), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [counter] ([branch_id], [create_date], [ctr], [month], [status_id], [counter_type], [update_date], [year])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [id]
+FROM [counter]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-04 02:52:28.491 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[id], [s].[name], [s].[Type]
+FROM [status] AS [s]
+WHERE ([s].[Type] = N'GEN') AND ([s].[name] = @__name_0)
+2024-02-04 02:52:28.495 +07:00 [INF] dpd: 89
+2024-02-04 02:52:28.541 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 200), @p2='?' (Size = 50), @p3='?' (Size = 50), @p4='?' (Size = 50), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (Size = 200), @p8='?' (Size = 50), @p9='?' (Size = 50), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (Size = 50), @p13='?' (Size = 50), @p14='?' (Size = 50), @p15='?' (DbType = Int32), @p16='?' (Size = 50), @p17='?' (Size = 50), @p18='?' (Size = 50), @p19='?' (Size = 200), @p20='?' (Size = 50), @p21='?' (Size = 50), @p22='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [generate_letter] ([cabang], [cabang_alamat], [cabang_faks], [cabang_kota], [cabang_telepon], [jumlah], [loan_id], [nama_nasabah], [no], [no_kredit], [no_sp1], [no_sp2], [notaris], [notaris_di], [notaris_tgl], [status_id], [tgl], [tgl_bayar], [tgl_kredit], [terbilang], [tgl_sp1], [tgl_sp2], [type_letter])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22);
+SELECT [id]
+FROM [generate_letter]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-04 02:52:48.962 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__acc_0='?' (Size = 25) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[acc_no] = @__acc_0
+2024-02-04 02:53:01.163 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'JSPR'
+2024-02-04 02:53:11.668 +07:00 [INF] url: reports/collectium/surat_teguran.pdf?no_surat=SK%2FST%2F0001%2FMELAWAI%2FII%2F2024&tgl=04 Februari 2024&nama_nasabah=SUKARDI&jumlah=Rp. 3.304.453,000&terbilang=Tiga Juta Tiga Ratus Empat Ribu Empat Ratus Lima Puluh Tiga Rupiah&tgl_bayar=04 Februari 2024&cabang=Kantor Cabang Melawai&no_sp1=&no_sp2=&tgl_sp1=&tgl_sp2=&senior_officer=Nama PC MELAWAI - KC&kota=Jakarta&cabang_faks=(021) 720-9303&cabang_telepon=(021) 721-0222 (H)&cabang_alamat=Jl. Melawai Raya Blok B III No. 194 Jakarta Selatan - 12160
+2024-02-04 02:53:20.785 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium) in 63129.8822ms
+2024-02-04 02:53:20.790 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:53:20.811 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Buffer cannot be null. (Parameter 'buffer')
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at System.IO.MemoryStream..ctor(Byte[] buffer)
+   at Collectium.Service.GenerateLetterService.GenerateLetterV2(GenerateLetterPdfRequestBean filter) in D:\Old Project\crms pak jose\dotnet\Collectium\Service\GenerateLetterService.cs:line 436
+   at Collectium.Controllers.CollectionController.GenerateLetterPdf(GenerateLetterPdfRequestBean bean) in D:\Old Project\crms pak jose\dotnet\Collectium\Controllers\CollectionController.cs:line 413
+   at lambda_method1399(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Collectium.Config.JWTMiddleware.Invoke(HttpContext context, UserService userService) in D:\Old Project\crms pak jose\dotnet\Collectium\Config\JWTMiddleware.cs:line 43
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-04 02:53:20.822 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=224&Code=ST application/json - - 500 - text/plain;+charset=utf-8 63208.3871ms
+2024-02-04 02:58:56.884 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-04 02:58:57.130 +07:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-02-04 02:58:57.130 +07:00 [INF] Quartz Scheduler created
+2024-02-04 02:58:57.131 +07:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-02-04 02:58:57.133 +07:00 [INF] RAMJobStore initialized.
+2024-02-04 02:58:57.135 +07:00 [INF] Quartz Scheduler 3.5.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-02-04 02:58:57.136 +07:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-02-04 02:58:57.137 +07:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-02-04 02:58:57.166 +07:00 [INF] Adding 1 jobs, 1 triggers.
+2024-02-04 02:58:57.170 +07:00 [INF] Adding job: DEFAULT.ConconcurrentJob
+2024-02-04 02:58:57.413 +07:00 [INF] Now listening on: https://localhost:7199
+2024-02-04 02:58:57.413 +07:00 [INF] Now listening on: http://localhost:5199
+2024-02-04 02:58:57.414 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-04 02:58:57.417 +07:00 [INF] Hosting environment: Development
+2024-02-04 02:58:57.419 +07:00 [INF] Content root path: D:\Old Project\crms pak jose\dotnet\Collectium\
+2024-02-04 02:58:57.430 +07:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-02-04 02:58:59.039 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger - -
+2024-02-04 02:58:59.089 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/index.html - -
+2024-02-04 02:58:59.116 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger - - - 0 - - 78.5505ms
+2024-02-04 02:58:59.359 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/index.html - - - 200 - text/html;charset=utf-8 269.2570ms
+2024-02-04 02:58:59.420 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - -
+2024-02-04 02:58:59.455 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_vs/browserLink - -
+2024-02-04 02:58:59.465 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 45.5811ms
+2024-02-04 02:58:59.485 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.2076ms
+2024-02-04 02:58:59.512 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - -
+2024-02-04 02:58:59.527 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-02-04 02:58:59.528 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - - - 0 628 image/png 16.3543ms
+2024-02-04 02:58:59.546 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - -
+2024-02-04 02:59:00.226 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 679.6237ms
+2024-02-04 02:59:09.914 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=224&Code=ST application/json -
+2024-02-04 02:59:12.781 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-04 02:59:15.001 +07:00 [INF] Executed DbCommand (223ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-04 02:59:15.875 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 02:59:15.929 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-04 02:59:20.145 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 02:59:23.574 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__loanId_0='?' (DbType = Int32), @__code_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN [master_loan] AS [m] ON [g].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([m].[id] = @__loanId_0) AND ([g].[type_letter] = @__code_1)) AND ([t].[name] = N'AKTIF')
+2024-02-04 03:01:22.820 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__acc_0='?' (Size = 25) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason]
+FROM [collection_call] AS [c]
+WHERE [c].[acc_no] = @__acc_0
+2024-02-04 03:01:22.915 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-04 03:01:22.997 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'JSPR'
+2024-02-04 03:01:23.054 +07:00 [INF] url: reports/collectium/surat_teguran.pdf?no_surat=SK%2FST%2F0001%2FMELAWAI%2FII%2F2024&tgl=04 Februari 2024&nama_nasabah=SUKARDI&jumlah=Rp. 3.304.453,000&terbilang=Tiga Juta Tiga Ratus Empat Ribu Empat Ratus Lima Puluh Tiga Rupiah&tgl_bayar=04 Februari 2024&cabang=Kantor Cabang Melawai&no_sp1=&no_sp2=&tgl_sp1=&tgl_sp2=&senior_officer=Nama PC MELAWAI - KC&kota=Jakarta&cabang_faks=(021) 720-9303&cabang_telepon=(021) 721-0222 (H)&cabang_alamat=Jl. Melawai Raya Blok B III No. 194 Jakarta Selatan - 12160
+2024-02-04 03:01:29.286 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium) in 133348.5063ms
+2024-02-04 03:01:29.291 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 03:01:29.319 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Buffer cannot be null. (Parameter 'buffer')
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at System.IO.MemoryStream..ctor(Byte[] buffer)
+   at Collectium.Service.GenerateLetterService.GenerateLetterV2(GenerateLetterPdfRequestBean filter) in D:\Old Project\crms pak jose\dotnet\Collectium\Service\GenerateLetterService.cs:line 436
+   at Collectium.Controllers.CollectionController.GenerateLetterPdf(GenerateLetterPdfRequestBean bean) in D:\Old Project\crms pak jose\dotnet\Collectium\Controllers\CollectionController.cs:line 413
+   at lambda_method627(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Collectium.Config.JWTMiddleware.Invoke(HttpContext context, UserService userService) in D:\Old Project\crms pak jose\dotnet\Collectium\Config\JWTMiddleware.cs:line 43
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-04 03:01:29.430 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=224&Code=ST application/json - - 500 - text/plain;+charset=utf-8 139515.1752ms
+2024-02-04 03:01:49.282 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/letter/generate?Id=224&Code=ST application/json -
+2024-02-04 03:01:49.299 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-04 03:01:49.332 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-04 03:01:49.341 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.GenerateLetterPdf (Collectium)'
+2024-02-04 03:01:49.342 +07:00 [INF] Route matched with {action = "GenerateLetterPdf", controller = "Collection"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GenerateLetterPdf(Collectium.Model.Bean.ListRequest.GenerateLetterPdfRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-04 03:01:58.279 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+FROM [master_loan] AS [m]
+WHERE [m].[id] = @__p_0
+2024-02-04 03:02:01.886 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__loanId_0='?' (DbType = Int32), @__code_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [g].[id], [g].[cabang], [g].[cabang_alamat], [g].[cabang_faks], [g].[cabang_kota], [g].[cabang_telepon], [g].[jumlah], [g].[loan_id], [g].[nama_nasabah], [g].[no], [g].[no_kredit], [g].[no_sp1], [g].[no_sp2], [g].[notaris], [g].[notaris_di], [g].[notaris_tgl], [g].[status_id], [g].[tgl], [g].[tgl_bayar], [g].[tgl_kredit], [g].[terbilang], [g].[tgl_sp1], [g].[tgl_sp2], [g].[type_letter]
+FROM [generate_letter] AS [g]
+LEFT JOIN [master_loan] AS [m] ON [g].[loan_id] = [m].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [g].[status_id] = [t].[id]
+WHERE (([m].[id] = @__loanId_0) AND ([g].[type_letter] = @__code_1)) AND ([t].[name] = N'AKTIF')

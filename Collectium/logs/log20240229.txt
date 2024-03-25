@@ -1,0 +1,433 @@
+2024-02-29 08:41:34.915 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-29 08:41:35.397 +07:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-02-29 08:41:35.398 +07:00 [INF] Quartz Scheduler created
+2024-02-29 08:41:35.399 +07:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-02-29 08:41:35.400 +07:00 [INF] RAMJobStore initialized.
+2024-02-29 08:41:35.401 +07:00 [INF] Quartz Scheduler 3.5.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-02-29 08:41:35.401 +07:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-02-29 08:41:35.402 +07:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-02-29 08:41:35.479 +07:00 [INF] Adding 1 jobs, 1 triggers.
+2024-02-29 08:41:35.484 +07:00 [INF] Adding job: DEFAULT.ConconcurrentJob
+2024-02-29 08:41:36.084 +07:00 [INF] Now listening on: https://localhost:7199
+2024-02-29 08:41:36.084 +07:00 [INF] Now listening on: http://localhost:5199
+2024-02-29 08:41:36.085 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 08:41:36.086 +07:00 [INF] Hosting environment: Development
+2024-02-29 08:41:36.121 +07:00 [INF] Content root path: D:\Old Project\crms pak jose\dotnet\Collectium\
+2024-02-29 08:41:36.129 +07:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-02-29 08:41:36.814 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/index.html - -
+2024-02-29 08:41:37.213 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/index.html - - - 200 - text/html;charset=utf-8 402.5521ms
+2024-02-29 08:41:37.246 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_vs/browserLink - -
+2024-02-29 08:41:37.246 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - -
+2024-02-29 08:41:37.273 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 26.3944ms
+2024-02-29 08:41:37.288 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.7418ms
+2024-02-29 08:41:37.408 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - -
+2024-02-29 08:41:37.793 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 385.9360ms
+2024-02-29 08:42:03.051 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/User/login application/json 52
+2024-02-29 08:42:04.329 +07:00 [INF] CORS policy execution successful.
+2024-02-29 08:42:04.492 +07:00 [INF] Executing endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-29 08:42:04.513 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[System.String] Login(Collectium.Model.Bean.Request.LoginRequestBean) on controller IseeBackend.Controllers.UserController (Collectium).
+2024-02-29 08:42:06.045 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-29 08:42:07.540 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'MAXP'
+2024-02-29 08:42:07.817 +07:00 [INF] Executed DbCommand (73ms) [Parameters=[@__filter_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [t].[id], [t].[name], [t].[Type]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+WHERE ([u].[username] = @__filter_Username_0) AND ([t].[name] = N'AKTIF')
+2024-02-29 08:42:08.198 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100) (DbType = AnsiString), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [token] ([expire], [firstname], [user_id])
+VALUES (@p0, @p1, @p2);
+SELECT [id]
+FROM [token]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-29 08:42:08.634 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-02-29 08:42:08.649 +07:00 [INF] Executed action IseeBackend.Controllers.UserController.Login (Collectium) in 4127.7599ms
+2024-02-29 08:42:08.651 +07:00 [INF] Executed endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-29 08:42:08.661 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 5610.0821ms
+2024-02-29 08:42:52.060 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Rule/bucket/list - -
+2024-02-29 08:42:52.181 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-29 08:42:52.237 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-29 08:42:52.275 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RuleController.ListBucket (Collectium)'
+2024-02-29 08:42:52.280 +07:00 [INF] Route matched with {action = "ListBucket", controller = "Rule"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketListResponseBean] ListBucket(BucketListBean) on controller Collectium.Controllers.RuleController (Collectium).
+2024-02-29 10:38:24.927 +07:00 [INF] Executed DbCommand (134ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+WHERE [t].[name] = N'AKTIF'
+2024-02-29 10:38:24.988 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[code], [b].[ext_code], [b].[name], [b].[status_id], [t].[id], [t].[name], [t].[Type]
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+WHERE [t].[name] = N'AKTIF'
+ORDER BY [b].[id] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2024-02-29 10:38:25.019 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketListResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-29 10:38:25.031 +07:00 [INF] Executed action Collectium.Controllers.RuleController.ListBucket (Collectium) in 6932746.7694ms
+2024-02-29 10:38:25.033 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RuleController.ListBucket (Collectium)'
+2024-02-29 10:38:25.034 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Rule/bucket/list - - - 0 - application/json;+charset=utf-8 6932976.1113ms
+2024-02-29 10:39:02.380 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Rule/bucket/list - -
+2024-02-29 10:39:02.432 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-29 10:39:02.457 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-29 10:39:02.466 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RuleController.ListBucket (Collectium)'
+2024-02-29 10:39:02.467 +07:00 [INF] Route matched with {action = "ListBucket", controller = "Rule"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketListResponseBean] ListBucket(BucketListBean) on controller Collectium.Controllers.RuleController (Collectium).
+2024-02-29 10:39:14.053 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+WHERE [t].[name] = N'AKTIF'
+2024-02-29 10:39:21.779 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[code], [b].[ext_code], [b].[name], [b].[status_id], [t].[id], [t].[name], [t].[Type]
+FROM [bucket] AS [b]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [b].[status_id] = [t].[id]
+WHERE [t].[name] = N'AKTIF'
+ORDER BY [b].[id] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2024-02-29 10:39:28.629 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketListResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-29 10:39:28.633 +07:00 [INF] Executed action Collectium.Controllers.RuleController.ListBucket (Collectium) in 26163.8808ms
+2024-02-29 10:39:28.634 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RuleController.ListBucket (Collectium)'
+2024-02-29 10:39:28.636 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Rule/bucket/list - - - 200 - application/json;+charset=utf-8 26255.7449ms
+2024-02-29 10:46:37.347 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Master/rule/agent/list - -
+2024-02-29 10:46:37.368 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-29 10:46:37.441 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-29 10:46:37.447 +07:00 [INF] Executing endpoint 'Collectium.Controllers.MasterController.DistribusiAgentList (Collectium)'
+2024-02-29 10:46:37.456 +07:00 [INF] Route matched with {action = "DistribusiAgentList", controller = "Master"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.UserResponseBean] DistribusiAgentList(DistribusiAgentReq) on controller Collectium.Controllers.MasterController (Collectium).
+2024-02-29 10:46:41.021 +07:00 [INF] DistribusiAgentList >>> started
+2024-02-29 10:47:00.884 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE ([u].[role_id] = 3) AND ([t].[name] = N'AKTIF')
+2024-02-29 11:09:27.763 +07:00 [INF] DistribusiManualList >>> finished
+2024-02-29 11:09:27.769 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.UserResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-29 11:09:27.845 +07:00 [INF] Executed action Collectium.Controllers.MasterController.DistribusiAgentList (Collectium) in 1370387.2994ms
+2024-02-29 11:09:27.847 +07:00 [INF] Executed endpoint 'Collectium.Controllers.MasterController.DistribusiAgentList (Collectium)'
+2024-02-29 11:09:27.848 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Master/rule/agent/list - - - 0 - application/json;+charset=utf-8 1370500.3109ms
+2024-02-29 11:09:43.831 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/Rule/bucket/save application/json 75
+2024-02-29 11:09:43.834 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-29 11:09:43.935 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-29 11:09:43.942 +07:00 [INF] CORS policy execution successful.
+2024-02-29 11:09:43.944 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RuleController.SaveBucket (Collectium)'
+2024-02-29 11:09:43.947 +07:00 [INF] Route matched with {action = "SaveBucket", controller = "Rule"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketCreateBean] SaveBucket(BucketCreateBean) on controller Collectium.Controllers.RuleController (Collectium).
+2024-02-29 11:09:54.993 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[@__name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[id], [s].[name], [s].[Type]
+FROM [status] AS [s]
+WHERE ([s].[Type] = N'GEN') AND ([s].[name] = @__name_0)
+2024-02-29 11:10:43.219 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@p0='?' (Size = 10), @p1='?' (Size = 10), @p2='?' (Size = 150), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [bucket] ([code], [ext_code], [name], [status_id])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [id]
+FROM [bucket]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-29 11:11:28.435 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [bucket_user] ([bucket_id], [user_id])
+VALUES (@p0, @p1);
+SELECT [id]
+FROM [bucket_user]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-29 11:11:28.490 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [bucket_user] ([bucket_id], [user_id])
+VALUES (@p0, @p1);
+SELECT [id]
+FROM [bucket_user]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-29 11:11:28.541 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.ListRequest.RecoveryListRequest+BucketCreateBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-29 11:11:28.549 +07:00 [INF] Executed action Collectium.Controllers.RuleController.SaveBucket (Collectium) in 104600.6056ms
+2024-02-29 11:11:28.551 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RuleController.SaveBucket (Collectium)'
+2024-02-29 11:11:28.552 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/Rule/bucket/save application/json 75 - 200 - application/json;+charset=utf-8 104721.8812ms
+2024-02-29 22:48:21.866 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/approval/list - -
+2024-02-29 22:48:21.942 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-29 22:48:22.077 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-29 22:48:22.100 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.ApprovalListMonitoring (Collectium)'
+2024-02-29 22:48:22.135 +07:00 [INF] Route matched with {action = "ApprovalListMonitoring", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean] ApprovalListMonitoring(RestructureListBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-02-29 22:48:32.517 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[id], [u].[branch_id], [u].[status_id], [u].[user_id]
+FROM [user_branch] AS [u]
+WHERE [u].[user_id] = @__p_0
+2024-02-29 22:51:11.992 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [restructure] AS [r]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t] ON [r].[status_id] = [t].[id]
+WHERE [t].[name] = N'PENGAJUAN'
+2024-02-29 22:51:12.022 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2024-02-29 22:51:12.023 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2024-02-29 22:51:12.155 +07:00 [INF] Executed DbCommand (59ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[id], [t0].[approveby_id], [t0].[approve_date], [t0].[mst_branch_id], [t0].[mst_branch_pembukuan_id], [t0].[mst_branch_proses_id], [t0].[checkby_id], [t0].[check_date], [t0].[createby_id], [t0].[create_date], [t0].[denda], [t0].[disc_tunggakan_denda], [t0].[disc_tunggakan_margin], [t0].[grace_periode], [t0].[jenis_pengurangan_id], [t0].[keterangan], [t0].[last_update_id], [t0].[last_update_date], [t0].[loan_id], [t0].[margin], [t0].[margin_amount], [t0].[margin_pembayaran], [t0].[margin_pinalty], [t0].[pembayaran_gp_id], [t0].[pengurangan_nilai_margin], [t0].[periode_diskon], [t0].[permasalahan], [t0].[pola_restruk_id], [t0].[principal_pembayaran], [t0].[principal_pinalty], [t0].[status_id], [t0].[tgl_akhir_periode_diskon], [t0].[tgl_awal_periode_diskon], [t0].[tgl_jatuh_tempo_baru], [t0].[total_diskon_margin], [t0].[value_date], [t0].[id0], [t0].[name], [t0].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t1].[id], [t1].[code], [t1].[name], [t1].[Type]
+FROM (
+    SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date], [t].[id] AS [id0], [t].[name], [t].[Type]
+    FROM [restructure] AS [r]
+    LEFT JOIN (
+        SELECT [s].[id], [s].[name], [s].[Type]
+        FROM [status] AS [s]
+        WHERE [s].[Type] = N'REST'
+    ) AS [t] ON [r].[status_id] = [t].[id]
+    WHERE [t].[name] = N'PENGAJUAN'
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t0]
+LEFT JOIN [master_loan] AS [m] ON [t0].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [t0].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [t0].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [t0].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t1] ON [t0].[pola_restruk_id] = [t1].[id]
+ORDER BY [t0].[id] DESC
+2024-02-29 22:51:12.550 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-29 22:51:12.564 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.ApprovalListMonitoring (Collectium) in 170426.6449ms
+2024-02-29 22:51:12.565 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.ApprovalListMonitoring (Collectium)'
+2024-02-29 22:51:12.566 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/approval/list - - - 0 - application/json;+charset=utf-8 170703.2831ms
+2024-02-29 22:52:19.541 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/User/login application/json 52
+2024-02-29 22:52:19.570 +07:00 [INF] CORS policy execution successful.
+2024-02-29 22:52:19.573 +07:00 [INF] Executing endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-29 22:52:19.575 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[System.String] Login(Collectium.Model.Bean.Request.LoginRequestBean) on controller IseeBackend.Controllers.UserController (Collectium).
+2024-02-29 22:52:19.579 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-29 22:52:19.592 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'MAXP'
+2024-02-29 22:52:19.609 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__filter_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [t].[id], [t].[name], [t].[Type]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+WHERE ([u].[username] = @__filter_Username_0) AND ([t].[name] = N'AKTIF')
+2024-02-29 22:52:19.636 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100) (DbType = AnsiString), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [token] ([expire], [firstname], [user_id])
+VALUES (@p0, @p1, @p2);
+SELECT [id]
+FROM [token]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-29 22:52:19.664 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-02-29 22:52:19.666 +07:00 [INF] Executed action IseeBackend.Controllers.UserController.Login (Collectium) in 89.2107ms
+2024-02-29 22:52:19.667 +07:00 [INF] Executed endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-29 22:52:19.668 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 127.0710ms
+2024-02-29 22:52:54.287 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - -
+2024-02-29 22:52:54.293 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-29 22:52:54.313 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-29 22:52:54.319 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-02-29 22:52:54.322 +07:00 [INF] Route matched with {action = "RestructureListMonitoring", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean] RestructureListMonitoring(RestructureListBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-02-29 22:52:54.362 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [restructure] AS [r]
+2024-02-29 22:52:54.460 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[approveby_id], [t].[approve_date], [t].[mst_branch_id], [t].[mst_branch_pembukuan_id], [t].[mst_branch_proses_id], [t].[checkby_id], [t].[check_date], [t].[createby_id], [t].[create_date], [t].[denda], [t].[disc_tunggakan_denda], [t].[disc_tunggakan_margin], [t].[grace_periode], [t].[jenis_pengurangan_id], [t].[keterangan], [t].[last_update_id], [t].[last_update_date], [t].[loan_id], [t].[margin], [t].[margin_amount], [t].[margin_pembayaran], [t].[margin_pinalty], [t].[pembayaran_gp_id], [t].[pengurangan_nilai_margin], [t].[periode_diskon], [t].[permasalahan], [t].[pola_restruk_id], [t].[principal_pembayaran], [t].[principal_pinalty], [t].[status_id], [t].[tgl_akhir_periode_diskon], [t].[tgl_awal_periode_diskon], [t].[tgl_jatuh_tempo_baru], [t].[total_diskon_margin], [t].[value_date], [t0].[id], [t0].[name], [t0].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t1].[id], [t1].[code], [t1].[name], [t1].[Type]
+FROM (
+    SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date]
+    FROM [restructure] AS [r]
+    ORDER BY [r].[id] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t0] ON [t].[status_id] = [t0].[id]
+LEFT JOIN [master_loan] AS [m] ON [t].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [t].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [t].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [t].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t1] ON [t].[pola_restruk_id] = [t1].[id]
+ORDER BY [t].[id] DESC
+2024-02-29 22:52:54.470 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-29 22:52:54.471 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium) in 146.7372ms
+2024-02-29 22:52:54.474 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-02-29 22:52:54.475 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - - - 200 - application/json;+charset=utf-8 190.9106ms
+2024-02-29 22:53:13.001 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - -
+2024-02-29 22:53:13.003 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-29 22:53:13.027 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-29 22:53:13.030 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-02-29 22:53:13.031 +07:00 [INF] Route matched with {action = "RestructureListMonitoring", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean] RestructureListMonitoring(RestructureListBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-02-29 22:53:39.081 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [restructure] AS [r]
+2024-02-29 22:54:15.090 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[approveby_id], [t].[approve_date], [t].[mst_branch_id], [t].[mst_branch_pembukuan_id], [t].[mst_branch_proses_id], [t].[checkby_id], [t].[check_date], [t].[createby_id], [t].[create_date], [t].[denda], [t].[disc_tunggakan_denda], [t].[disc_tunggakan_margin], [t].[grace_periode], [t].[jenis_pengurangan_id], [t].[keterangan], [t].[last_update_id], [t].[last_update_date], [t].[loan_id], [t].[margin], [t].[margin_amount], [t].[margin_pembayaran], [t].[margin_pinalty], [t].[pembayaran_gp_id], [t].[pengurangan_nilai_margin], [t].[periode_diskon], [t].[permasalahan], [t].[pola_restruk_id], [t].[principal_pembayaran], [t].[principal_pinalty], [t].[status_id], [t].[tgl_akhir_periode_diskon], [t].[tgl_awal_periode_diskon], [t].[tgl_jatuh_tempo_baru], [t].[total_diskon_margin], [t].[value_date], [t0].[id], [t0].[name], [t0].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t1].[id], [t1].[code], [t1].[name], [t1].[Type]
+FROM (
+    SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date]
+    FROM [restructure] AS [r]
+    ORDER BY [r].[id] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t0] ON [t].[status_id] = [t0].[id]
+LEFT JOIN [master_loan] AS [m] ON [t].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [t].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [t].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [t].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t1] ON [t].[pola_restruk_id] = [t1].[id]
+ORDER BY [t].[id] DESC
+2024-02-29 22:54:31.608 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-29 22:54:31.612 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium) in 78579.7752ms
+2024-02-29 22:54:31.614 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-02-29 22:54:31.615 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - - - 0 - application/json;+charset=utf-8 78613.9264ms
+2024-02-29 22:54:46.453 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - -
+2024-02-29 22:54:46.465 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-29 22:54:46.488 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-29 22:54:46.491 +07:00 [INF] Executing endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-02-29 22:54:46.492 +07:00 [INF] Route matched with {action = "RestructureListMonitoring", controller = "Recovery"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean] RestructureListMonitoring(RestructureListBean) on controller Collectium.Controllers.RecoveryController (Collectium).
+2024-02-29 22:54:48.259 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [restructure] AS [r]
+2024-02-29 22:54:48.281 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[approveby_id], [t].[approve_date], [t].[mst_branch_id], [t].[mst_branch_pembukuan_id], [t].[mst_branch_proses_id], [t].[checkby_id], [t].[check_date], [t].[createby_id], [t].[create_date], [t].[denda], [t].[disc_tunggakan_denda], [t].[disc_tunggakan_margin], [t].[grace_periode], [t].[jenis_pengurangan_id], [t].[keterangan], [t].[last_update_id], [t].[last_update_date], [t].[loan_id], [t].[margin], [t].[margin_amount], [t].[margin_pembayaran], [t].[margin_pinalty], [t].[pembayaran_gp_id], [t].[pengurangan_nilai_margin], [t].[periode_diskon], [t].[permasalahan], [t].[pola_restruk_id], [t].[principal_pembayaran], [t].[principal_pinalty], [t].[status_id], [t].[tgl_akhir_periode_diskon], [t].[tgl_awal_periode_diskon], [t].[tgl_jatuh_tempo_baru], [t].[total_diskon_margin], [t].[value_date], [t0].[id], [t0].[name], [t0].[Type], [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [b0].[id], [b0].[addr1], [b0].[addr2], [b0].[addr3], [b0].[amount], [b0].[area_id], [b0].[branch_type_id], [b0].[city], [b0].[code], [b0].[core_code], [b0].[create_date], [b0].[email], [b0].[fax], [b0].[name], [b0].[norek], [b0].[phone], [b0].[pic], [b0].[prd_segment_id], [b0].[STG_DATE], [b0].[status_id], [b0].[update_date], [b0].[zipcode], [b1].[id], [b1].[addr1], [b1].[addr2], [b1].[addr3], [b1].[amount], [b1].[area_id], [b1].[branch_type_id], [b1].[city], [b1].[code], [b1].[core_code], [b1].[create_date], [b1].[email], [b1].[fax], [b1].[name], [b1].[norek], [b1].[phone], [b1].[pic], [b1].[prd_segment_id], [b1].[STG_DATE], [b1].[status_id], [b1].[update_date], [b1].[zipcode], [t1].[id], [t1].[code], [t1].[name], [t1].[Type]
+FROM (
+    SELECT [r].[id], [r].[approveby_id], [r].[approve_date], [r].[mst_branch_id], [r].[mst_branch_pembukuan_id], [r].[mst_branch_proses_id], [r].[checkby_id], [r].[check_date], [r].[createby_id], [r].[create_date], [r].[denda], [r].[disc_tunggakan_denda], [r].[disc_tunggakan_margin], [r].[grace_periode], [r].[jenis_pengurangan_id], [r].[keterangan], [r].[last_update_id], [r].[last_update_date], [r].[loan_id], [r].[margin], [r].[margin_amount], [r].[margin_pembayaran], [r].[margin_pinalty], [r].[pembayaran_gp_id], [r].[pengurangan_nilai_margin], [r].[periode_diskon], [r].[permasalahan], [r].[pola_restruk_id], [r].[principal_pembayaran], [r].[principal_pinalty], [r].[status_id], [r].[tgl_akhir_periode_diskon], [r].[tgl_awal_periode_diskon], [r].[tgl_jatuh_tempo_baru], [r].[total_diskon_margin], [r].[value_date]
+    FROM [restructure] AS [r]
+    ORDER BY [r].[id] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'REST'
+) AS [t0] ON [t].[status_id] = [t0].[id]
+LEFT JOIN [master_loan] AS [m] ON [t].[loan_id] = [m].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [branch] AS [b] ON [t].[mst_branch_id] = [b].[id]
+LEFT JOIN [branch] AS [b0] ON [t].[mst_branch_pembukuan_id] = [b0].[id]
+LEFT JOIN [branch] AS [b1] ON [t].[mst_branch_proses_id] = [b1].[id]
+LEFT JOIN (
+    SELECT [g].[id], [g].[code], [g].[name], [g].[Type]
+    FROM [generic_param] AS [g]
+    WHERE [g].[Type] = N'POLR'
+) AS [t1] ON [t].[pola_restruk_id] = [t1].[id]
+ORDER BY [t].[id] DESC
+2024-02-29 22:54:48.296 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.RestructureResponse+RestructureListResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-29 22:54:48.298 +07:00 [INF] Executed action Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium) in 1804.69ms
+2024-02-29 22:54:48.301 +07:00 [INF] Executed endpoint 'Collectium.Controllers.RecoveryController.RestructureListMonitoring (Collectium)'
+2024-02-29 22:54:48.302 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Recovery/restruktur/monitoring/list - - - 200 - application/json;+charset=utf-8 1849.0516ms

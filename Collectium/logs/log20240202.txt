@@ -1,0 +1,1255 @@
+2024-02-02 14:37:27.901 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/fieldcoll/spv/list application/json -
+2024-02-02 14:37:28.025 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-02 14:37:29.142 +07:00 [INF] Executed DbCommand (893ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-02 14:37:29.171 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ListSpvFieldCollection (Collectium)'
+2024-02-02 14:37:29.176 +07:00 [INF] Route matched with {action = "ListSpvFieldCollection", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.SpvCollResponseBean] ListSpvFieldCollection(Collectium.Model.Bean.ListRequest.SpvListCollectiontBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-02 14:37:34.548 +07:00 [INF] Executed DbCommand (149ms) [Parameters=[@__reqUser_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[id], [t0].[area_id], [t0].[branch_id], [t0].[spv_id], [t1].[id], [t1].[member_id], [t1].[team_id]
+FROM (
+    SELECT TOP(1) [t].[id], [t].[area_id], [t].[branch_id], [t].[spv_id]
+    FROM [team] AS [t]
+    WHERE [t].[spv_id] = @__reqUser_Id_0
+) AS [t0]
+LEFT JOIN [team_member] AS [t1] ON [t0].[id] = [t1].[team_id]
+ORDER BY [t0].[id]
+2024-02-02 14:38:28.459 +07:00 [INF] Executed DbCommand (1,375ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+LEFT JOIN [collection_call] AS [c] ON [m].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+WHERE ([u].[role_id] = 3) AND ([m].[status] = 1)
+2024-02-02 14:38:29.496 +07:00 [INF] Executed DbCommand (966ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [t].[id0], [t].[acc_no0], [t].[branch_id], [t].[call_amount], [t].[call_by], [t].[call_date], [t].[call_name], [t].[call_notes], [t].[call_result_date], [t].[call_result_hh], [t].[call_result_hhmm], [t].[call_result_id], [t].[call_result_mm], [t].[add_id], [t].[loan_id], [t].[call_reason], [t].[id1], [t].[active_branch_id], [t].[admin], [t].[create_date], [t].[email], [t].[fail], [t].[fcm], [t].[name], [t].[pass_device], [t].[password], [t].[role_id], [t].[status_id], [t].[tel_code], [t].[tel_device], [t].[url], [t].[username]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [c].[id] AS [id0], [c].[acc_no] AS [acc_no0], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id] AS [id1], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+    FROM [master_loan] AS [m]
+    LEFT JOIN [collection_call] AS [c] ON [m].[id] = [c].[loan_id]
+    LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+    WHERE ([u].[role_id] = 3) AND ([m].[status] = 1)
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+ORDER BY [t].[id] DESC
+2024-02-02 14:38:29.576 +07:00 [INF] Executed DbCommand (63ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:30.415 +07:00 [INF] Executed DbCommand (832ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:30.539 +07:00 [INF] Executed DbCommand (119ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:30.855 +07:00 [INF] Executed DbCommand (313ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:30.879 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:31.134 +07:00 [INF] Executed DbCommand (252ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:31.197 +07:00 [INF] Executed DbCommand (57ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:31.692 +07:00 [INF] Executed DbCommand (490ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:31.765 +07:00 [INF] Executed DbCommand (69ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:32.150 +07:00 [INF] Executed DbCommand (380ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:32.354 +07:00 [INF] Executed DbCommand (200ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:32.422 +07:00 [INF] Executed DbCommand (64ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:32.722 +07:00 [INF] Executed DbCommand (296ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:32.792 +07:00 [INF] Executed DbCommand (66ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:32.949 +07:00 [INF] Executed DbCommand (152ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:32.997 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:33.157 +07:00 [INF] Executed DbCommand (155ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:33.261 +07:00 [INF] Executed DbCommand (100ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:33.349 +07:00 [INF] Executed DbCommand (84ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:33.464 +07:00 [INF] Executed DbCommand (110ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:33.629 +07:00 [INF] Executed DbCommand (160ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:33.706 +07:00 [INF] Executed DbCommand (74ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:33.893 +07:00 [INF] Executed DbCommand (181ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:33.990 +07:00 [INF] Executed DbCommand (94ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:34.084 +07:00 [INF] Executed DbCommand (89ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:34.521 +07:00 [INF] Executed DbCommand (435ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:34.701 +07:00 [INF] Executed DbCommand (176ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:34.775 +07:00 [INF] Executed DbCommand (69ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:35.077 +07:00 [INF] Executed DbCommand (299ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:35.197 +07:00 [INF] Executed DbCommand (116ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:35.306 +07:00 [INF] Executed DbCommand (106ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:35.320 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:35.659 +07:00 [INF] Executed DbCommand (337ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:35.909 +07:00 [INF] Executed DbCommand (246ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:35.997 +07:00 [INF] Executed DbCommand (84ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:36.162 +07:00 [INF] Executed DbCommand (161ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:36.260 +07:00 [INF] Executed DbCommand (74ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:36.331 +07:00 [INF] Executed DbCommand (69ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:36.602 +07:00 [INF] Executed DbCommand (253ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:36.782 +07:00 [INF] Executed DbCommand (176ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:37.012 +07:00 [INF] Executed DbCommand (226ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:38:37.484 +07:00 [INF] Executed DbCommand (469ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:37.569 +07:00 [INF] Executed DbCommand (81ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:37.675 +07:00 [INF] Executed DbCommand (100ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:37.837 +07:00 [INF] Executed DbCommand (158ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:37.897 +07:00 [INF] Executed DbCommand (56ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:38:37.903 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.SpvCollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-02 14:38:37.907 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.ListSpvFieldCollection (Collectium) in 68729.0649ms
+2024-02-02 14:38:37.909 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.ListSpvFieldCollection (Collectium)'
+2024-02-02 14:38:37.910 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7199/api/Collection/fieldcoll/spv/list application/json - - 200 - application/json;+charset=utf-8 70015.1663ms
+2024-02-02 14:41:04.384 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/fieldcoll/spv/list application/json -
+2024-02-02 14:41:04.388 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-02 14:41:05.359 +07:00 [INF] Executed DbCommand (966ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-02 14:41:05.362 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ListSpvFieldCollection (Collectium)'
+2024-02-02 14:41:05.362 +07:00 [INF] Route matched with {action = "ListSpvFieldCollection", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.SpvCollResponseBean] ListSpvFieldCollection(Collectium.Model.Bean.ListRequest.SpvListCollectiontBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-02 14:41:12.411 +07:00 [INF] Executed DbCommand (164ms) [Parameters=[@__reqUser_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[id], [t0].[area_id], [t0].[branch_id], [t0].[spv_id], [t1].[id], [t1].[member_id], [t1].[team_id]
+FROM (
+    SELECT TOP(1) [t].[id], [t].[area_id], [t].[branch_id], [t].[spv_id]
+    FROM [team] AS [t]
+    WHERE [t].[spv_id] = @__reqUser_Id_0
+) AS [t0]
+LEFT JOIN [team_member] AS [t1] ON [t0].[id] = [t1].[team_id]
+ORDER BY [t0].[id]
+2024-02-02 14:41:31.477 +07:00 [INF] Executed DbCommand (962ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+LEFT JOIN [collection_call] AS [c] ON [m].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+WHERE ([u].[role_id] = 3) AND ([m].[status] = 1)
+2024-02-02 14:41:32.203 +07:00 [INF] Executed DbCommand (723ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [t].[id0], [t].[acc_no0], [t].[branch_id], [t].[call_amount], [t].[call_by], [t].[call_date], [t].[call_name], [t].[call_notes], [t].[call_result_date], [t].[call_result_hh], [t].[call_result_hhmm], [t].[call_result_id], [t].[call_result_mm], [t].[add_id], [t].[loan_id], [t].[call_reason], [t].[id1], [t].[active_branch_id], [t].[admin], [t].[create_date], [t].[email], [t].[fail], [t].[fcm], [t].[name], [t].[pass_device], [t].[password], [t].[role_id], [t].[status_id], [t].[tel_code], [t].[tel_device], [t].[url], [t].[username]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [c].[id] AS [id0], [c].[acc_no] AS [acc_no0], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id] AS [id1], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+    FROM [master_loan] AS [m]
+    LEFT JOIN [collection_call] AS [c] ON [m].[id] = [c].[loan_id]
+    LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+    WHERE ([u].[role_id] = 3) AND ([m].[status] = 1)
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+ORDER BY [t].[id] DESC
+2024-02-02 14:41:32.267 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:41:35.253 +07:00 [INF] Executed DbCommand (2,984ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:41:35.352 +07:00 [INF] Executed DbCommand (92ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:41:35.945 +07:00 [INF] Executed DbCommand (588ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:41:36.059 +07:00 [INF] Executed DbCommand (107ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:41:36.541 +07:00 [INF] Executed DbCommand (478ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:41:36.576 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:41:36.852 +07:00 [INF] Executed DbCommand (271ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:41:36.939 +07:00 [INF] Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:41:37.604 +07:00 [INF] Executed DbCommand (662ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:41:37.840 +07:00 [INF] Executed DbCommand (231ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:41:37.853 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:41:37.918 +07:00 [INF] Executed DbCommand (45ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:41:37.950 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:41:38.212 +07:00 [INF] Executed DbCommand (258ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:41:38.332 +07:00 [INF] Executed DbCommand (114ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:41:39.033 +07:00 [INF] Executed DbCommand (699ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:41:39.193 +07:00 [INF] Executed DbCommand (156ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 14:41:39.306 +07:00 [INF] Executed DbCommand (109ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 14:41:49.353 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-02 14:41:49.828 +07:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-02-02 14:41:49.828 +07:00 [INF] Quartz Scheduler created
+2024-02-02 14:41:49.829 +07:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-02-02 14:41:49.830 +07:00 [INF] RAMJobStore initialized.
+2024-02-02 14:41:49.831 +07:00 [INF] Quartz Scheduler 3.5.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-02-02 14:41:49.831 +07:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-02-02 14:41:49.832 +07:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-02-02 14:41:49.880 +07:00 [INF] Adding 1 jobs, 1 triggers.
+2024-02-02 14:41:49.883 +07:00 [INF] Adding job: DEFAULT.ConconcurrentJob
+2024-02-02 14:41:50.331 +07:00 [INF] Now listening on: https://localhost:7199
+2024-02-02 14:41:50.332 +07:00 [INF] Now listening on: http://localhost:5199
+2024-02-02 14:41:50.332 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-02 14:41:50.336 +07:00 [INF] Hosting environment: Development
+2024-02-02 14:41:50.337 +07:00 [INF] Content root path: D:\Old Project\crms pak jose\dotnet\Collectium\
+2024-02-02 14:41:50.343 +07:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-02-02 14:41:52.000 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger - -
+2024-02-02 14:42:12.422 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-02 14:42:12.707 +07:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-02-02 14:42:12.708 +07:00 [INF] Quartz Scheduler created
+2024-02-02 14:42:12.709 +07:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-02-02 14:42:12.710 +07:00 [INF] RAMJobStore initialized.
+2024-02-02 14:42:12.712 +07:00 [INF] Quartz Scheduler 3.5.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-02-02 14:42:12.713 +07:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-02-02 14:42:12.714 +07:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-02-02 14:42:12.736 +07:00 [INF] Adding 1 jobs, 1 triggers.
+2024-02-02 14:42:12.741 +07:00 [INF] Adding job: DEFAULT.ConconcurrentJob
+2024-02-02 14:42:13.005 +07:00 [INF] Now listening on: https://localhost:7199
+2024-02-02 14:42:13.006 +07:00 [INF] Now listening on: http://localhost:5199
+2024-02-02 14:42:13.007 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-02 14:42:13.008 +07:00 [INF] Hosting environment: Development
+2024-02-02 14:42:13.008 +07:00 [INF] Content root path: D:\Old Project\crms pak jose\dotnet\Collectium\
+2024-02-02 14:42:13.017 +07:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-02-02 14:42:13.945 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger - -
+2024-02-02 14:42:17.686 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/index.html - -
+2024-02-02 14:42:17.712 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger - - - 0 - - 3768.9920ms
+2024-02-02 14:42:17.932 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/index.html - - - 200 - text/html;charset=utf-8 246.0804ms
+2024-02-02 14:42:17.952 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - -
+2024-02-02 14:42:17.958 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 5.4364ms
+2024-02-02 14:42:17.960 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_vs/browserLink - -
+2024-02-02 14:42:17.985 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 24.8469ms
+2024-02-02 14:42:18.094 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - -
+2024-02-02 14:42:18.107 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-02-02 14:42:18.109 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - - - 0 628 image/png 14.5832ms
+2024-02-02 14:42:18.148 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - -
+2024-02-02 14:42:18.405 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 257.2346ms
+2024-02-02 14:42:48.416 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/User/login application/json 52
+2024-02-02 14:42:49.409 +07:00 [INF] CORS policy execution successful.
+2024-02-02 14:42:49.545 +07:00 [INF] Executing endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-02 14:42:49.564 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[System.String] Login(Collectium.Model.Bean.Request.LoginRequestBean) on controller IseeBackend.Controllers.UserController (Collectium).
+2024-02-02 14:42:51.060 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-02 14:42:53.137 +07:00 [INF] Executed DbCommand (269ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'MAXP'
+2024-02-02 14:42:54.007 +07:00 [INF] Executed DbCommand (703ms) [Parameters=[@__filter_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [t].[id], [t].[name], [t].[Type]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+WHERE ([u].[username] = @__filter_Username_0) AND ([t].[name] = N'AKTIF')
+2024-02-02 14:42:55.423 +07:00 [INF] Executed DbCommand (895ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100) (DbType = AnsiString), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [token] ([expire], [firstname], [user_id])
+VALUES (@p0, @p1, @p2);
+SELECT [id]
+FROM [token]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-02 14:42:56.049 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-02-02 14:42:56.066 +07:00 [INF] Executed action IseeBackend.Controllers.UserController.Login (Collectium) in 6493.477ms
+2024-02-02 14:42:56.069 +07:00 [INF] Executed endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-02 14:42:56.082 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 7666.1144ms
+2024-02-02 14:43:28.999 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/fieldcoll/spv/list - -
+2024-02-02 14:43:29.087 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-02 14:43:29.303 +07:00 [INF] Executed DbCommand (193ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-02 14:43:29.342 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ListSpvFieldCollection (Collectium)'
+2024-02-02 14:43:29.346 +07:00 [INF] Route matched with {action = "ListSpvFieldCollection", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.SpvCollResponseBean] ListSpvFieldCollection(Collectium.Model.Bean.ListRequest.SpvListCollectiontBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-02 14:43:33.622 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[@__reqUser_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[id], [t0].[area_id], [t0].[branch_id], [t0].[spv_id], [t1].[id], [t1].[member_id], [t1].[team_id]
+FROM (
+    SELECT TOP(1) [t].[id], [t].[area_id], [t].[branch_id], [t].[spv_id]
+    FROM [team] AS [t]
+    WHERE [t].[spv_id] = @__reqUser_Id_0
+) AS [t0]
+LEFT JOIN [team_member] AS [t1] ON [t0].[id] = [t1].[team_id]
+ORDER BY [t0].[id]
+2024-02-02 14:43:51.461 +07:00 [INF] Executed DbCommand (2,388ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+FROM [master_loan] AS [m]
+LEFT JOIN [collection_call] AS [c] ON [m].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+LEFT JOIN [master_customer] AS [m0] ON [m].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [m].[product] = [r].[id]
+WHERE [u].[id] IN (2332, 2362, 2364, 2334, 2412, 2423, 2345, 2430, 2431, 2360, 2427, 2359, 2357)
+2024-02-02 15:26:37.379 +07:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+LEFT JOIN [collection_call] AS [c] ON [m].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+WHERE [u].[id] IN (2332, 2362, 2364, 2334, 2412, 2423, 2345, 2430, 2431, 2360, 2427, 2359, 2357) AND ([m].[status] = 1)
+2024-02-02 15:26:37.468 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Collectium.Model.CollectiumDBContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-02 15:26:38.818 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.ListSpvFieldCollection (Collectium) in 2589470.858ms
+2024-02-02 15:26:38.821 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.ListSpvFieldCollection (Collectium)'
+2024-02-02 15:26:38.838 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlCommand.ValidateCommand(Boolean isAsync, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method1682(Closure , QueryContext )
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at Collectium.Service.CollectionService.ListMyTeam(SpvListCollectiontBean filter) in D:\Old Project\crms pak jose\dotnet\Collectium\Service\CollectionService.cs:line 1335
+   at Collectium.Controllers.CollectionController.ListSpvFieldCollection(SpvListCollectiontBean bean) in D:\Old Project\crms pak jose\dotnet\Collectium\Controllers\CollectionController.cs:line 332
+   at lambda_method1034(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Collectium.Config.JWTMiddleware.Invoke(HttpContext context, UserService userService) in D:\Old Project\crms pak jose\dotnet\Collectium\Config\JWTMiddleware.cs:line 43
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-02 15:26:38.899 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/fieldcoll/spv/list - - - 500 - text/plain;+charset=utf-8 2589900.1277ms
+2024-02-02 17:34:16.858 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/deskcall/spv/list application/json -
+2024-02-02 17:34:16.910 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-02 17:34:17.004 +07:00 [INF] Executed DbCommand (34ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-02 17:34:17.017 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ListSpvCollection (Collectium)'
+2024-02-02 17:34:17.022 +07:00 [INF] Route matched with {action = "ListSpvCollection", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.SpvCollResponseBean] ListSpvCollection(Collectium.Model.Bean.ListRequest.SpvListCollectiontBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-02 17:34:22.577 +07:00 [INF] Executed DbCommand (31ms) [Parameters=[@__reqUser_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[id], [t0].[area_id], [t0].[branch_id], [t0].[spv_id], [t1].[id], [t1].[member_id], [t1].[team_id]
+FROM (
+    SELECT TOP(1) [t].[id], [t].[area_id], [t].[branch_id], [t].[spv_id]
+    FROM [team] AS [t]
+    WHERE [t].[spv_id] = @__reqUser_Id_0
+) AS [t0]
+LEFT JOIN [team_member] AS [t1] ON [t0].[id] = [t1].[team_id]
+ORDER BY [t0].[id]
+2024-02-02 17:34:40.872 +07:00 [INF] Executed DbCommand (168ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+LEFT JOIN [collection_call] AS [c] ON [m].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+WHERE ([u].[role_id] = 3) AND ([m].[status] = 1)
+2024-02-02 17:34:40.886 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2024-02-02 17:34:40.888 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2024-02-02 17:34:40.984 +07:00 [INF] Executed DbCommand (73ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [t].[id0], [t].[acc_no0], [t].[branch_id], [t].[call_amount], [t].[call_by], [t].[call_date], [t].[call_name], [t].[call_notes], [t].[call_result_date], [t].[call_result_hh], [t].[call_result_hhmm], [t].[call_result_id], [t].[call_result_mm], [t].[add_id], [t].[loan_id], [t].[call_reason], [t].[id1], [t].[active_branch_id], [t].[admin], [t].[create_date], [t].[email], [t].[fail], [t].[fcm], [t].[name], [t].[pass_device], [t].[password], [t].[role_id], [t].[status_id], [t].[tel_code], [t].[tel_device], [t].[url], [t].[username]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [c].[id] AS [id0], [c].[acc_no] AS [acc_no0], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id] AS [id1], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+    FROM [master_loan] AS [m]
+    LEFT JOIN [collection_call] AS [c] ON [m].[id] = [c].[loan_id]
+    LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+    WHERE ([u].[role_id] = 3) AND ([m].[status] = 1)
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+ORDER BY [t].[id] DESC
+2024-02-02 17:34:41.057 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:41.523 +07:00 [INF] Executed DbCommand (360ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:41.579 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:41.693 +07:00 [INF] Executed DbCommand (109ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:41.717 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:41.783 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:41.800 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:41.829 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:41.846 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:41.869 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:41.908 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:41.965 +07:00 [INF] Executed DbCommand (51ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:42.003 +07:00 [INF] Executed DbCommand (35ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.016 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:42.050 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.062 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:42.087 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.110 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.122 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:42.202 +07:00 [INF] Executed DbCommand (77ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.237 +07:00 [INF] Executed DbCommand (31ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.266 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.290 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.310 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.330 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:42.358 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.377 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.392 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:42.460 +07:00 [INF] Executed DbCommand (66ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.476 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:42.517 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.546 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:42.570 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.606 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.620 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:42.652 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.695 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:42.717 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.745 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.767 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.807 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 17:34:42.831 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.856 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.878 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.928 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.954 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-02-02 17:34:42.957 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.SpvCollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-02 17:34:42.992 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.ListSpvCollection (Collectium) in 25968.7726ms
+2024-02-02 17:34:42.994 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.ListSpvCollection (Collectium)'
+2024-02-02 17:34:42.996 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7199/api/Collection/deskcall/spv/list application/json - - 200 - application/json;+charset=utf-8 26137.7605ms
+2024-02-02 22:39:07.248 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-02 22:39:12.500 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-02 22:39:12.991 +07:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-02-02 22:39:12.991 +07:00 [INF] Quartz Scheduler created
+2024-02-02 22:39:12.992 +07:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-02-02 22:39:12.993 +07:00 [INF] RAMJobStore initialized.
+2024-02-02 22:39:12.994 +07:00 [INF] Quartz Scheduler 3.5.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-02-02 22:39:12.995 +07:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-02-02 22:39:12.995 +07:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-02-02 22:39:13.104 +07:00 [INF] Adding 1 jobs, 1 triggers.
+2024-02-02 22:39:13.108 +07:00 [INF] Adding job: DEFAULT.ConconcurrentJob
+2024-02-02 22:39:13.845 +07:00 [INF] Now listening on: https://localhost:7199
+2024-02-02 22:39:13.846 +07:00 [INF] Now listening on: http://localhost:5199
+2024-02-02 22:39:13.846 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-02 22:39:13.847 +07:00 [INF] Hosting environment: Development
+2024-02-02 22:39:13.848 +07:00 [INF] Content root path: D:\Old Project\crms pak jose\dotnet\Collectium\
+2024-02-02 22:39:13.855 +07:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-02-02 22:39:15.549 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger - -
+2024-02-02 22:39:15.594 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/index.html - -
+2024-02-02 22:39:17.220 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger - - - 0 - - 1673.2780ms
+2024-02-02 22:39:17.529 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/index.html - - - 200 - text/html;charset=utf-8 1934.8263ms
+2024-02-02 22:39:17.549 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - -
+2024-02-02 22:39:17.555 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_vs/browserLink - -
+2024-02-02 22:39:17.556 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 7.3361ms
+2024-02-02 22:39:17.579 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 24.1988ms
+2024-02-02 22:39:17.693 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - -
+2024-02-02 22:39:17.709 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-02-02 22:39:17.710 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - - - 0 628 image/png 17.2447ms
+2024-02-02 22:39:17.772 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - -
+2024-02-02 22:39:18.107 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 335.1525ms
+2024-02-02 22:39:43.342 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/User/login application/json 52
+2024-02-02 22:39:45.013 +07:00 [INF] CORS policy execution successful.
+2024-02-02 22:39:45.174 +07:00 [INF] Executing endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-02 22:39:45.196 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[System.String] Login(Collectium.Model.Bean.Request.LoginRequestBean) on controller IseeBackend.Controllers.UserController (Collectium).
+2024-02-02 22:39:47.001 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-02 22:39:49.450 +07:00 [INF] Executed DbCommand (70ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'MAXP'
+2024-02-02 22:39:49.784 +07:00 [INF] Executed DbCommand (119ms) [Parameters=[@__filter_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [t].[id], [t].[name], [t].[Type]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+WHERE ([u].[username] = @__filter_Username_0) AND ([t].[name] = N'AKTIF')
+2024-02-02 22:39:50.516 +07:00 [INF] Executed DbCommand (53ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100) (DbType = AnsiString), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [token] ([expire], [firstname], [user_id])
+VALUES (@p0, @p1, @p2);
+SELECT [id]
+FROM [token]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-02-02 22:39:51.339 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-02-02 22:39:51.354 +07:00 [INF] Executed action IseeBackend.Controllers.UserController.Login (Collectium) in 6149.8381ms
+2024-02-02 22:39:51.355 +07:00 [INF] Executed endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-02-02 22:39:51.367 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 8024.0384ms
+2024-02-02 22:40:49.923 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/letter/list - -
+2024-02-02 22:40:50.082 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-02 22:40:50.319 +07:00 [INF] Executed DbCommand (184ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-02 22:40:50.370 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ListLetter (Collectium)'
+2024-02-02 22:40:50.377 +07:00 [INF] Route matched with {action = "ListLetter", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollResponseBean] ListLetter(Collectium.Model.Bean.ListRequest.CollListRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-02 22:40:52.760 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 22:40:52.875 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__ab_Code_0='?' (Size = 50) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+WHERE (([m].[channel_branch_code] = @__ab_Code_0) AND ([m].[status] = 1)) AND ([m].[dpd] > 14)
+2024-02-02 22:40:53.032 +07:00 [INF] Executed DbCommand (120ms) [Parameters=[@__ab_Code_0='?' (Size = 50) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [a].[id], [a].[code], [a].[core_code], [a].[create_date], [a].[name], [a].[status_id], [a].[update_date]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+    FROM [master_loan] AS [m]
+    WHERE (([m].[channel_branch_code] = @__ab_Code_0) AND ([m].[status] = 1)) AND ([m].[dpd] > 14)
+    ORDER BY [m].[id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+LEFT JOIN [collection_call] AS [c] ON [t].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+LEFT JOIN [branch] AS [b] ON [c].[branch_id] = [b].[id]
+LEFT JOIN [area] AS [a] ON [b].[area_id] = [a].[id]
+ORDER BY [t].[id]
+2024-02-02 22:40:53.243 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.CollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-02 22:40:53.261 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.ListLetter (Collectium) in 2882.5736ms
+2024-02-02 22:40:53.264 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.ListLetter (Collectium)'
+2024-02-02 22:40:53.265 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/letter/list - - - 200 - application/json;+charset=utf-8 3342.6051ms
+2024-02-02 22:41:36.276 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7199/api/Collection/letter/list application/json -
+2024-02-02 22:41:36.313 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-02-02 22:41:36.361 +07:00 [INF] Executed DbCommand (43ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-02-02 22:41:36.372 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ListLetter (Collectium)'
+2024-02-02 22:41:36.373 +07:00 [INF] Route matched with {action = "ListLetter", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.CollResponseBean] ListLetter(Collectium.Model.Bean.ListRequest.CollListRequestBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-02-02 22:42:14.705 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-02-02 22:47:44.047 +07:00 [INF] Executed DbCommand (60ms) [Parameters=[@__ab_Code_0='?' (Size = 50) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+WHERE (([m].[channel_branch_code] = @__ab_Code_0) AND ([m].[status] = 1)) AND ([m].[dpd] > 14)
+2024-02-02 22:47:44.219 +07:00 [INF] Executed DbCommand (169ms) [Parameters=[@__ab_Code_0='?' (Size = 50) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [c].[id], [c].[acc_no], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode], [a].[id], [a].[code], [a].[core_code], [a].[create_date], [a].[name], [a].[status_id], [a].[update_date]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total]
+    FROM [master_loan] AS [m]
+    WHERE (([m].[channel_branch_code] = @__ab_Code_0) AND ([m].[status] = 1)) AND ([m].[dpd] > 14)
+    ORDER BY [m].[id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+LEFT JOIN [collection_call] AS [c] ON [t].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+LEFT JOIN [branch] AS [b] ON [c].[branch_id] = [b].[id]
+LEFT JOIN [area] AS [a] ON [b].[area_id] = [a].[id]
+ORDER BY [t].[id]
+2024-02-02 22:47:44.226 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.CollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-02 22:47:44.231 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.ListLetter (Collectium) in 367856.7959ms
+2024-02-02 22:47:44.232 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.ListLetter (Collectium)'
+2024-02-02 22:47:44.233 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7199/api/Collection/letter/list application/json - - 200 - application/json;+charset=utf-8 367956.7510ms

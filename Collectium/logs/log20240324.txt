@@ -1,0 +1,186 @@
+2024-03-24 23:54:14.036 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-24 23:54:14.684 +07:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-03-24 23:54:14.685 +07:00 [INF] Quartz Scheduler created
+2024-03-24 23:54:14.686 +07:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-03-24 23:54:14.687 +07:00 [INF] RAMJobStore initialized.
+2024-03-24 23:54:14.688 +07:00 [INF] Quartz Scheduler 3.5.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-03-24 23:54:14.689 +07:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-03-24 23:54:14.691 +07:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-03-24 23:54:14.756 +07:00 [INF] Adding 1 jobs, 1 triggers.
+2024-03-24 23:54:14.760 +07:00 [INF] Adding job: DEFAULT.ConconcurrentJob
+2024-03-24 23:54:15.346 +07:00 [INF] Now listening on: https://localhost:7199
+2024-03-24 23:54:15.352 +07:00 [INF] Now listening on: http://localhost:5199
+2024-03-24 23:54:15.352 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-24 23:54:15.353 +07:00 [INF] Hosting environment: Development
+2024-03-24 23:54:15.354 +07:00 [INF] Content root path: D:\Old Project\crms pak jose\dotnet\Collectium\
+2024-03-24 23:54:15.361 +07:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-03-24 23:54:38.254 +07:00 [INF] User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-24 23:54:38.566 +07:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-03-24 23:54:38.578 +07:00 [INF] Quartz Scheduler created
+2024-03-24 23:54:38.579 +07:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-03-24 23:54:38.582 +07:00 [INF] RAMJobStore initialized.
+2024-03-24 23:54:38.585 +07:00 [INF] Quartz Scheduler 3.5.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-03-24 23:54:38.593 +07:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-03-24 23:54:38.594 +07:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-03-24 23:54:38.619 +07:00 [INF] Adding 1 jobs, 1 triggers.
+2024-03-24 23:54:38.623 +07:00 [INF] Adding job: DEFAULT.ConconcurrentJob
+2024-03-24 23:54:38.905 +07:00 [INF] Now listening on: https://localhost:7199
+2024-03-24 23:54:38.906 +07:00 [INF] Now listening on: http://localhost:5199
+2024-03-24 23:54:38.908 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-24 23:54:38.909 +07:00 [INF] Hosting environment: Development
+2024-03-24 23:54:38.911 +07:00 [INF] Content root path: D:\Old Project\crms pak jose\dotnet\Collectium\
+2024-03-24 23:54:38.918 +07:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-03-24 23:54:40.450 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger - -
+2024-03-24 23:54:40.521 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/index.html - -
+2024-03-24 23:54:40.595 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger - - - 0 - - 149.3035ms
+2024-03-24 23:54:41.014 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/index.html - - - 200 - text/html;charset=utf-8 493.2031ms
+2024-03-24 23:54:41.044 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - -
+2024-03-24 23:54:41.057 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/_vs/browserLink - -
+2024-03-24 23:54:41.100 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 56.5121ms
+2024-03-24 23:54:41.161 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 103.6402ms
+2024-03-24 23:54:41.322 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - -
+2024-03-24 23:54:41.346 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-03-24 23:54:41.347 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/favicon-32x32.png - - - 0 628 image/png 25.2457ms
+2024-03-24 23:54:41.360 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - -
+2024-03-24 23:54:41.777 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 417.7387ms
+2024-03-24 23:55:10.724 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7199/api/User/login application/json 52
+2024-03-24 23:55:11.923 +07:00 [INF] CORS policy execution successful.
+2024-03-24 23:55:12.055 +07:00 [INF] Executing endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-03-24 23:55:12.079 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[System.String] Login(Collectium.Model.Bean.Request.LoginRequestBean) on controller IseeBackend.Controllers.UserController (Collectium).
+2024-03-24 23:55:13.622 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-24 23:55:15.914 +07:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[id], [r].[code], [r].[create_date], [r].[name], [r].[status_id], [r].[update_date], [r].[value]
+FROM [rfglobal] AS [r]
+WHERE [r].[code] = 'MAXP'
+2024-03-24 23:55:16.547 +07:00 [INF] Executed DbCommand (179ms) [Parameters=[@__filter_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [t].[id], [t].[name], [t].[Type]
+FROM [users] AS [u]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name], [s].[Type]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t] ON [u].[status_id] = [t].[id]
+WHERE ([u].[username] = @__filter_Username_0) AND ([t].[name] = N'AKTIF')
+2024-03-24 23:55:17.325 +07:00 [INF] Executed DbCommand (49ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100) (DbType = AnsiString), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [token] ([expire], [firstname], [user_id])
+VALUES (@p0, @p1, @p2);
+SELECT [id]
+FROM [token]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-03-24 23:55:18.259 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-03-24 23:55:18.301 +07:00 [INF] Executed action IseeBackend.Controllers.UserController.Login (Collectium) in 6209.4402ms
+2024-03-24 23:55:18.305 +07:00 [INF] Executed endpoint 'IseeBackend.Controllers.UserController.Login (Collectium)'
+2024-03-24 23:55:18.329 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7199/api/User/login application/json 52 - 200 - application/json;+charset=utf-8 7604.3423ms
+2024-03-24 23:56:02.656 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7199/api/Collection/fieldcoll/spv/list - -
+2024-03-24 23:56:02.756 +07:00 [INF] Entity Framework Core 6.0.8 initialized 'CollectiumDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2024-03-24 23:56:02.837 +07:00 [INF] Executed DbCommand (59ms) [Parameters=[@__Trim_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[expire], [t].[firstname], [t].[user_id], [u].[id], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username], [r].[id], [r].[name], [r].[status_id]
+FROM [token] AS [t]
+LEFT JOIN [users] AS [u] ON [t].[user_id] = [u].[id]
+LEFT JOIN (
+    SELECT [s].[id], [s].[name]
+    FROM [status] AS [s]
+    WHERE [s].[Type] = N'GEN'
+) AS [t0] ON [u].[status_id] = [t0].[id]
+LEFT JOIN [role] AS [r] ON [u].[role_id] = [r].[id]
+WHERE (LTRIM(RTRIM(UPPER([t].[firstname]))) = @__Trim_0) AND ([t0].[name] = N'AKTIF')
+2024-03-24 23:56:02.876 +07:00 [INF] Executing endpoint 'Collectium.Controllers.CollectionController.ListSpvFieldCollection (Collectium)'
+2024-03-24 23:56:02.883 +07:00 [INF] Route matched with {action = "ListSpvFieldCollection", controller = "Collection"}. Executing controller action with signature Collectium.Model.Bean.GenericResponse`1[Collectium.Model.Bean.Response.SpvCollResponseBean] ListSpvFieldCollection(Collectium.Model.Bean.ListRequest.SpvListCollectiontBean) on controller Collectium.Controllers.CollectionController (Collectium).
+2024-03-24 23:56:08.561 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@__reqUser_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[id], [t0].[area_id], [t0].[branch_id], [t0].[spv_id], [t1].[id], [t1].[member_id], [t1].[team_id]
+FROM (
+    SELECT TOP(1) [t].[id], [t].[area_id], [t].[branch_id], [t].[spv_id]
+    FROM [team] AS [t]
+    WHERE [t].[spv_id] = @__reqUser_Id_0
+) AS [t0]
+LEFT JOIN [team_member] AS [t1] ON [t0].[id] = [t1].[team_id]
+ORDER BY [t0].[id]
+2024-03-24 23:58:49.725 +07:00 [INF] Executed DbCommand (68ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [master_loan] AS [m]
+LEFT JOIN [collection_call] AS [c] ON [m].[id] = [c].[loan_id]
+LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+WHERE [u].[id] IN (2317, 2315, 2370, 2371, 2373, 2375, 2379, 2380, 2382, 2383, 2414, 2418) AND ([m].[status] = 1)
+2024-03-24 23:58:49.741 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2024-03-24 23:58:49.745 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2024-03-24 23:58:49.865 +07:00 [INF] Executed DbCommand (96ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[acc_no], [t].[ccy], [t].[channel_branch_code], [t].[cu_cif], [t].[customer_id], [t].[dpd], [t].[econa_name], [t].[econ_phone], [t].[econ_relation], [t].[fasilitas], [t].[file_date], [t].[installment], [t].[installment_pokok], [t].[interest_rate], [t].[kewajiban_total], [t].[kolektibilitas], [t].[last_pay_date], [t].[loan_number], [t].[marketing_code], [t].[maturity_date], [t].[outstanding], [t].[payin_account], [t].[pay_total], [t].[plafond], [t].[product], [t].[prd_segment_id], [t].[STG_DATE], [t].[sisa_tenor], [t].[start_date], [t].[status], [t].[tenor], [t].[tunggakan_bunga], [t].[tunggakan_denda], [t].[tunggakan_pokok], [t].[tunggakan_total], [m0].[id], [m0].[cu_address], [m0].[cu_borndate], [m0].[cu_bornplace], [m0].[branch_id], [m0].[cu_cif], [m0].[city], [m0].[cu_city], [m0].[cu_company], [m0].[cu_income], [m0].[cu_occupation], [m0].[cu_custtype], [m0].[cu_email], [m0].[cu_gender], [m0].[cu_hmphone], [m0].[cu_idtype], [m0].[cu_idnumber], [m0].[cu_incometype], [m0].[jabatan], [m0].[kecamatan], [m0].[cu_kecamatan], [m0].[kelurahan], [m0].[cu_kelurahan], [m0].[cu_maritalstatus], [m0].[cu_mobilephone], [m0].[cu_name], [m0].[cu_nationality], [m0].[pekerjaan], [m0].[provinsi], [m0].[cu_provinsi], [m0].[cu_rt], [m0].[cu_rw], [m0].[STG_DATE], [m0].[cu_zipcode], [r].[id], [r].[code], [r].[core_code], [r].[create_date], [r].[desc], [r].[prd_segment_id], [r].[status_id], [r].[update_date], [t].[id0], [t].[acc_no0], [t].[branch_id], [t].[call_amount], [t].[call_by], [t].[call_date], [t].[call_name], [t].[call_notes], [t].[call_result_date], [t].[call_result_hh], [t].[call_result_hhmm], [t].[call_result_id], [t].[call_result_mm], [t].[add_id], [t].[loan_id], [t].[call_reason], [t].[id1], [t].[active_branch_id], [t].[admin], [t].[create_date], [t].[email], [t].[fail], [t].[fcm], [t].[name], [t].[pass_device], [t].[password], [t].[role_id], [t].[status_id], [t].[tel_code], [t].[tel_device], [t].[url], [t].[username]
+FROM (
+    SELECT [m].[id], [m].[acc_no], [m].[ccy], [m].[channel_branch_code], [m].[cu_cif], [m].[customer_id], [m].[dpd], [m].[econa_name], [m].[econ_phone], [m].[econ_relation], [m].[fasilitas], [m].[file_date], [m].[installment], [m].[installment_pokok], [m].[interest_rate], [m].[kewajiban_total], [m].[kolektibilitas], [m].[last_pay_date], [m].[loan_number], [m].[marketing_code], [m].[maturity_date], [m].[outstanding], [m].[payin_account], [m].[pay_total], [m].[plafond], [m].[product], [m].[prd_segment_id], [m].[STG_DATE], [m].[sisa_tenor], [m].[start_date], [m].[status], [m].[tenor], [m].[tunggakan_bunga], [m].[tunggakan_denda], [m].[tunggakan_pokok], [m].[tunggakan_total], [c].[id] AS [id0], [c].[acc_no] AS [acc_no0], [c].[branch_id], [c].[call_amount], [c].[call_by], [c].[call_date], [c].[call_name], [c].[call_notes], [c].[call_result_date], [c].[call_result_hh], [c].[call_result_hhmm], [c].[call_result_id], [c].[call_result_mm], [c].[add_id], [c].[loan_id], [c].[call_reason], [u].[id] AS [id1], [u].[active_branch_id], [u].[admin], [u].[create_date], [u].[email], [u].[fail], [u].[fcm], [u].[name], [u].[pass_device], [u].[password], [u].[role_id], [u].[status_id], [u].[tel_code], [u].[tel_device], [u].[url], [u].[username]
+    FROM [master_loan] AS [m]
+    LEFT JOIN [collection_call] AS [c] ON [m].[id] = [c].[loan_id]
+    LEFT JOIN [users] AS [u] ON [c].[call_by] = [u].[id]
+    WHERE [u].[id] IN (2317, 2315, 2370, 2371, 2373, 2375, 2379, 2380, 2382, 2383, 2414, 2418) AND ([m].[status] = 1)
+    ORDER BY (SELECT 1)
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+LEFT JOIN [master_customer] AS [m0] ON [t].[customer_id] = [m0].[id]
+LEFT JOIN [rfproduct] AS [r] ON [t].[product] = [r].[id]
+ORDER BY [t].[id] DESC
+2024-03-24 23:58:50.142 +07:00 [INF] Executed DbCommand (36ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-03-24 23:58:50.293 +07:00 [INF] Executed DbCommand (56ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-03-24 23:58:50.336 +07:00 [INF] Executed DbCommand (37ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[id], [b].[addr1], [b].[addr2], [b].[addr3], [b].[amount], [b].[area_id], [b].[branch_type_id], [b].[city], [b].[code], [b].[core_code], [b].[create_date], [b].[email], [b].[fax], [b].[name], [b].[norek], [b].[phone], [b].[pic], [b].[prd_segment_id], [b].[STG_DATE], [b].[status_id], [b].[update_date], [b].[zipcode]
+FROM [branch] AS [b]
+WHERE [b].[id] = @__p_0
+2024-03-24 23:58:50.386 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-03-24 23:58:50.448 +07:00 [INF] Executed DbCommand (51ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-03-24 23:58:50.510 +07:00 [INF] Executed DbCommand (58ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-03-24 23:58:50.565 +07:00 [INF] Executed DbCommand (51ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-03-24 23:58:50.679 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@__p_2='?' (DbType = Int32), @__it_AccNo_0='?' (Size = 25) (DbType = AnsiString), @__assg_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[id], [t].[acc_no], [t].[amount], [t].[branch_id], [t].[call_by], [t].[call_id], [t].[CallResultHh], [t].[call_result_hhmm], [t].[call_result_mm], [t].[cbm_id], [t].[add_id], [t].[dpd], [t].[history_by], [t].[history_date], [t].[kolek], [t].[latitude], [t].[longitude], [t].[name], [t].[note], [t].[picture], [t].[reason], [t].[result_date], [t].[result], [t].[ubm_id]
+FROM (
+    SELECT TOP(@__p_2) [c].[id], [c].[acc_no], [c].[amount], [c].[branch_id], [c].[call_by], [c].[call_id], [c].[CallResultHh], [c].[call_result_hhmm], [c].[call_result_mm], [c].[cbm_id], [c].[add_id], [c].[dpd], [c].[history_by], [c].[history_date], [c].[kolek], [c].[latitude], [c].[longitude], [c].[name], [c].[note], [c].[picture], [c].[reason], [c].[result_date], [c].[result], [c].[ubm_id]
+    FROM [collection_history] AS [c]
+    WHERE ([c].[acc_no] = @__it_AccNo_0) AND ([c].[call_by] = @__assg_Id_1)
+    ORDER BY [c].[history_date] DESC
+) AS [t]
+ORDER BY [t].[history_date] DESC
+2024-03-24 23:58:50.684 +07:00 [INF] Executing ObjectResult, writing value of type 'Collectium.Model.Bean.GenericResponse`1[[Collectium.Model.Bean.Response.SpvCollResponseBean, Collectium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-24 23:58:50.720 +07:00 [INF] Executed action Collectium.Controllers.CollectionController.ListSpvFieldCollection (Collectium) in 167834.8808ms
+2024-03-24 23:58:50.722 +07:00 [INF] Executed endpoint 'Collectium.Controllers.CollectionController.ListSpvFieldCollection (Collectium)'
+2024-03-24 23:58:50.722 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7199/api/Collection/fieldcoll/spv/list - - - 0 - application/json;+charset=utf-8 168065.8592ms
